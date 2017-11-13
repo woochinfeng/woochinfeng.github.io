@@ -26,6 +26,10 @@ discus-identifier: mr-brown # add your discus identifier
 # Tracker
 analytics: # Google Analytics
 
+#IntenseDebate
+intensedebate_comments: false
+
+
 # Build Settings
 markdown: kramdown
 plugins_dir:
