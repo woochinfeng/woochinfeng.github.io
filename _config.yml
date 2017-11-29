@@ -32,6 +32,10 @@ intensedebate_comments: false
 
 # Build Settings
 markdown: kramdown
+# markdown: redcarpet
+# redcarpet:
+#     extensions: [ "fenced_code_blocks", "hard_wrap","autolink", "tables", "strikethrough", "superscript", "with_toc_data", "highlight", "prettify","no_intra_emphasis"]
+
 plugins_dir:
   - jekyll-sitemap
   - jekyll-paginate

@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Node.js+MongoDB博客 - Hello! I'm Rudder</title>
+
+  <!-- Edit site and author settings in `_config.yml` to make the social details your own -->
+
+    <meta content="Hello! I'm Rudder" property="og:site_name">
+  
+    <meta content="Node.js+MongoDB博客" property="og:title">
+  
+  
+    <meta content="article" property="og:type">
+  
+  
+    <meta content="Node.js+MongoDB" property="og:description">
+  
+  
+    <meta content="http://localhost:4000/node.js-blog/" property="og:url">
+  
+  
+    <meta content="2017-11-28T05:00:00+08:00" property="article:published_time">
+    <meta content="http://localhost:4000/about/" property="article:author">
+  
+  
+    <meta content="http://localhost:4000/assets/img/node-logo.jpeg" property="og:image">
+  
+  
+    
+  
+  
+    
+    <meta content="Node" property="article:tag">
+    
+    <meta content="Blog" property="article:tag">
+    
+    <meta content="MongoDB" property="article:tag">
+    
+  
+
+  
+    <meta name="twitter:card" content="Node.js+MongoDB">
+  
+    <meta name="twitter:site" content="@">
+    <meta name="twitter:creator" content="@">
+  
+    <meta name="twitter:title" content="Node.js+MongoDB博客">
+  
+  
+    <meta name="twitter:url" content="http://localhost:4000/node.js-blog/">
+  
+  
+    <meta name="twitter:description" content="Node.js+MongoDB">
+  
+  
+    <meta name="twitter:image:src" content="http://localhost:4000/img/rudder-wu.png">
+  
+
+	<meta name="description" content="Node.js+MongoDB">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta property="og:image" content="">
+	<!-- <link rel="shortcut icon" href="/assets/img/favicon/favicon.ico" type="image/x-icon"> -->
+	<link rel="shortcut icon" href="/assets/img/favicon/favicon.ico" type="image/x-icon">
+	<link rel="apple-touch-icon" href="/assets/img/favicon/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/assets/img/favicon/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="/assets/img/favicon/apple-touch-icon-114x114.png">
+	<!-- Chrome, Firefox OS and Opera -->
+	<meta name="theme-color" content="#263959">
+	<!-- Windows Phone -->
+	<meta name="msapplication-navbutton-color" content="#263959">
+	<!-- iOS Safari -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="#263959">
+	<!-- Google Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=PT+Serif:400,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="/assets/fonts/font-awesome/css/font-awesome.min.css">
+	<!-- Styles -->
+	<link rel="stylesheet" href="/assets/css/main.css">
+</head>
+
+<body>
+
+  <div class="wrapper">
+    <aside class="sidebar">
+  <header>
+    <div class="about">
+      <div class="cover-author-image">
+        <a href="/"><img src="/assets/img/rudder-wu.png" alt="Rudder"></a>
+      </div>
+      <div class="author-name">Rudder</div>
+      <p>Enjoy Life!</p>
+    </div>
+  </header> <!-- End Header -->
+  <footer>
+    <section class="contact">
+      <h3 class="contact-title">Contact me</h3>
+      <ul>
+        
+          <li><a href="https://www.weibo.com/5544217447/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" target="_blank"><i class="fa fa-weibo" aria-hidden="true"></i></a></li>
+        
+        
+          <li class="github"><a href="https://github.com/worldkingwu" target="_blank"><i class="fa fa-github"></i></a></li>
+        
+        
+          <li class="email"><a href="mailto:worldkingwu@gmail.com"><i class="fa fa-envelope-o"></i></a></li>
+        
+		
+          <li class="code"><a href="http://worldkingwu.com" target="_blank"><i class="fa  fa-code"></i></a></li>
+        
+      </ul>
+    </section> <!-- End Section Contact -->
+    <div class="copyright">
+      <p>2017 &copy; Rudder</p>
+    </div>
+  </footer> <!-- End Footer -->
+</aside> <!-- End Sidebar -->
+<div class="content-box clearfix">
+  <article class="article-page">
+  <div class="page-content">
+    
+    <!-- <div class="page-cover-image">
+      <img class="page-image" src=/assets/img/node-logo.jpeg alt="Node.js+MongoDB博客">
+    </div>  -->
+	<!-- End Page Cover Image -->
+    
+    <div class="wrap-content">
+      <header class="header-page">
+        <h1 class="page-title">Node.js+MongoDB博客</h1>
+        <div class="page-date"><span>2017, Nov 28&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
+      </header>
+      <h3 id="1项目初始化">1.项目初始化</h3>
+<blockquote>
+  <p>$ npm init</p>
+</blockquote>
+
+<h3 id="2安装模块">2.安装模块</h3>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>express、body-parser、cookies、markdown、mongoose、swig
+</code></pre></div></div>
+
+<blockquote>
+  <p>$ npm install express body-parser cookies markdown mongoose swig –save</p>
+</blockquote>
+
+<h3 id="3创建文件目录">3.创建文件目录</h3>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">db</span> <span class="c1">//文件库存储目录</span>
+<span class="nx">models</span> <span class="c1">//数据库模型目录</span>
+<span class="nx">node_modules</span> <span class="c1">//node第三方模块目录</span>
+<span class="kr">public</span> <span class="c1">//公共文件目录（css、js、images）</span>
+<span class="nx">router</span> <span class="c1">//路由文件目录</span>
+<span class="nx">schemas</span> <span class="c1">//数据库结构文件（schema）目录</span>
+<span class="nx">views</span> <span class="c1">//模板视图文件目录</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">js</span> <span class="c1">//应用启动（入口）文件</span>
+<span class="kr">package</span><span class="p">.</span><span class="nx">json</span> <span class="c1">//node第三方模块版本记录</span>
+</code></pre></div></div>
+
+<h3 id="4应用创建">4.应用创建</h3>
+
+<ul>
+  <li>创建应用、监听端口</li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//加载express模块</span>
+<span class="kd">var</span> <span class="nx">express</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'express'</span><span class="p">);</span>
+<span class="c1">//创建app应用 =&gt; NodeJs中的Http.createSever();</span>
+<span class="kd">var</span> <span class="nx">app</span> <span class="o">=</span> <span class="nx">express</span><span class="p">();</span>
+
+<span class="c1">//监听http请求</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">listen</span><span class="p">(</span><span class="mi">9527</span><span class="p">);</span>
+</code></pre></div></div>
+<ul>
+  <li>用户的访问
+    <ul>
+      <li>用户通过URL访问web应用</li>
+      <li>web后端根据用户访问的URL处理不同的业务逻辑</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="5处理请求输出">5.处理请求输出</h3>
+<ul>
+  <li>路由绑定
+通过app.get()或app.post()等方法可以把一个url路径和一个或N个函数进行绑定</li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">app</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="s1">'/'</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="nx">res</span><span class="p">,</span><span class="nx">next</span><span class="p">){})</span>
+<span class="c1">//req:request对象 -保存客户端请求相关的一些数据</span>
+<span class="c1">//res:reponse对象 -服务端输出对象，提供了 一些服务端输出相关的方法 http.response</span>
+<span class="c1">//next:方法，用于执行下一个和路径匹配的函数</span>
+</code></pre></div></div>
+<ul>
+  <li>内容输出
+    <ul>
+      <li>通过res.send(string)发送内容至客户端</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="6使用模板">6.使用模板</h3>
+
+<ul>
+  <li>模板的使用
+    <ul>
+      <li>后端逻辑和页面表现分离 （前后端分离）</li>
+    </ul>
+  </li>
+  <li>模板的配置</li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//引入swigswig模板处理模块</span>
+<span class="kd">var</span> <span class="nx">swig</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'swig'</span><span class="p">);</span>
+<span class="c1">//定义当前应用所使用的模板引擎</span>
+<span class="c1">//第一个参数：模板引擎的名称，同时也是模板文件的后缀，第二个参数表示用于解析处理模板内容的方法</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">engine</span><span class="p">(</span><span class="s1">'html'</span><span class="p">,</span><span class="nx">swig</span><span class="p">.</span><span class="nx">renderFile</span><span class="p">);</span>
+<span class="c1">//设置模板文件存放目录,第一个参数必须是views,第二个是目录参数</span>
+<span class="nx">app</span><span class="p">.</span><span class="kd">set</span><span class="p">(</span><span class="s1">'views'</span><span class="p">,</span><span class="s1">'./views'</span><span class="p">);</span>
+<span class="c1">//注册所使用的模板引擎，第一个参数必须是view engine，第二个参数和app.engine这个方法中定义的模板引擎名称（第一个参数）一致</span>
+<span class="nx">app</span><span class="p">.</span><span class="kd">set</span><span class="p">(</span><span class="s1">'view engine'</span><span class="p">,</span><span class="s1">'html'</span><span class="p">)</span>
+</code></pre></div></div>
+<ul>
+  <li>模板渲染</li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/**
+* 读取views目录下的指定文件，解析并返回给客户端
+* 第一个参数：表示模板的文件，相对于views目录 views/index.html
+* 第二个参数：传递给模板使用的数据
+*/</span>
+<span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">'index'</span><span class="p">);</span>
+<span class="c1">//注：为了性能考虑，app应用去读取模板的时候，它会读取到模板并解析，然后保存到内存当中</span>
+<span class="c1">//当下一次访问同样的模板不会再次解析，而是读取已经存在内存中的内容</span>
+
+<span class="c1">//在开发过程中，需要取消模板缓存</span>
+<span class="nx">swig</span><span class="p">.</span><span class="nx">setDefaults</span><span class="p">({</span><span class="na">cache</span><span class="p">:</span><span class="kc">false</span><span class="p">});</span>
+</code></pre></div></div>
+
+<h3 id="7静态文件托管">7.静态文件托管</h3>
+<p>一般情况下，例如引入一个CSS文件</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="o">&lt;</span><span class="nx">link</span> <span class="nx">rel</span><span class="o">=</span><span class="s2">"stylesheet"</span> <span class="nx">href</span><span class="o">=</span><span class="s2">"main.css"</span> <span class="o">/&gt;</span>
+
+<span class="nx">app</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="s1">'/main.css'</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="nx">res</span><span class="p">,</span><span class="nx">next</span><span class="p">){</span>
+	<span class="nx">res</span><span class="p">.</span><span class="nx">setHeader</span><span class="p">(</span><span class="s1">'content-type'</span><span class="p">,</span><span class="s1">'text/css'</span><span class="p">)</span>
+	<span class="c1">//默认识别为html，必须设置请求头，否则不被识别为css</span>
+	<span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s2">"body{background:blue}"</span><span class="p">)</span>
+<span class="p">})</span>
+</code></pre></div></div>
+<p>如果有N个CSS，那就要写N个路由。因为CSS是一个静态文件，不需要动态内容，所以只需要原封不动发送给前端即可</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s1">'/public'</span><span class="p">,</span><span class="nx">express</span><span class="p">.</span><span class="kr">static</span><span class="p">(</span><span class="nx">__dirname</span><span class="o">+</span><span class="s1">'/public'</span><span class="p">));</span>
+<span class="c1">//当用户访问的url以/public开始，那么直接返回__dirname+'/public'下的文件</span>
+</code></pre></div></div>
+<h4 id="小结">小结</h4>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>用户发送http请求 -&gt; url -&gt; 解析路由 -&gt; 找到匹配的规则 -&gt; 执行指定的绑定函数，返回对应内容至用户
+
+/public -&gt; 静态 -&gt; 直接读取指定目录下文件，返回给用户
+ 	   动态 -&gt; 处理业务逻辑，加载模板，解析模板 -&gt; 返回数据给用户
+</code></pre></div></div>
+
+<h3 id="8划分模块">8.划分模块</h3>
+<ul>
+  <li>模块划分
+    <ul>
+      <li>前台模块</li>
+      <li>后台管理模块</li>
+      <li>API模块</li>
+    </ul>
+  </li>
+</ul>
+
+<p>使用app.use()进行模块划分</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s1">'/admin'</span><span class="p">,</span><span class="nx">require</span><span class="p">(</span><span class="s1">'./routers/admin'</span><span class="p">));</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s1">'/api'</span><span class="p">,</span><span class="nx">require</span><span class="p">(</span><span class="s1">'./routers/api'</span><span class="p">));</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="s1">'/'</span><span class="p">,</span><span class="nx">require</span><span class="p">(</span><span class="s1">'./routers/main'</span><span class="p">));</span>
+</code></pre></div></div>
+<h4 id="前台路由模板">前台路由+模板</h4>
+<ul>
+  <li>main模块
+    <ul>
+      <li>/ 首页</li>
+      <li>/view 内容页</li>
+    </ul>
+  </li>
+  <li>api模块
+    <ul>
+      <li>/ 首页</li>
+      <li>/register 用户注册</li>
+      <li>/login 用户登录</li>
+      <li>/comment 评论获取</li>
+      <li>/comment/post 评论提交</li>
+    </ul>
+  </li>
+  <li>admin模块
+    <ul>
+      <li>
+        <p>/ 首页</p>
+      </li>
+      <li>用户管理
+        <ul>
+          <li>/user 用户列表</li>
+        </ul>
+      </li>
+      <li>分类管理
+        <ul>
+          <li>/category 分类列表</li>
+          <li>/category/add 分类添加</li>
+          <li>/category/edit 分类修改</li>
+          <li>/category/delete 分类删除</li>
+        </ul>
+      </li>
+      <li>文章管理
+        <ul>
+          <li>/article 内容列表</li>
+          <li>/article/add 内容添加</li>
+          <li>/article/edit 内容修改</li>
+          <li>/article/delete 内容删除</li>
+        </ul>
+      </li>
+      <li>评论内容管理
+        <ul>
+          <li>/comment 评论列表</li>
+          <li>/comment/delete 评论删除</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="功能开发顺序">功能开发顺序</h3>
+<ul>
+  <li>功能模块开发顺序
+    <ul>
+      <li>用户</li>
+      <li>栏目</li>
+      <li>内容</li>
+      <li>评论</li>
+    </ul>
+  </li>
+  <li>编码顺序
+    <ul>
+      <li>通过Schema定义设计数据存储结构</li>
+      <li>功能逻辑</li>
+      <li>页面展示</li>
+    </ul>
+
+    <p>为了方便数据处理，要先做后台管理模块，因为添加、修改数据等操作需要有一个后台功能，在数据产生之后再做前台展示。</p>
+  </li>
+</ul>
+
+<h3 id="用户注册">用户注册</h3>
+<ul>
+  <li>UserSchema结构设计</li>
+  <li>注册页面</li>
+  <li>注册逻辑
+    <ul>
+      <li>使用ajax方式实现注册
+  api接口编写</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="mongodb数据库连接">mongoDB数据库连接</h3>
+<p>数据结构处理使用MongoDB</p>
+<blockquote>
+  <p>https://www.mongodb.com</p>
+</blockquote>
+
+<p>在mongoDB官网选择下载安装，具体教程可以看<a href="http://note.youdao.com/noteshare?id=2165cc713d9d0ae71c673a0794211702">笔记下方</a>（Mac版）</p>
+
+<ul>
+  <li>安装完成开启数据库
+    <blockquote>
+      <p>$ mongod –dbpath db(db是数据文件保存路径)</p>
+    </blockquote>
+  </li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*app.js*/</span>
+<span class="c1">//加载mongoose模块</span>
+<span class="kd">var</span> <span class="nx">mongoose</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'mongoose'</span><span class="p">);</span>
+<span class="c1">//连接数据库</span>
+<span class="nx">mongoose</span><span class="p">.</span><span class="nx">connect</span><span class="p">(</span><span class="s1">'mongodb://localhost:27017/blog'</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">err</span><span class="p">){</span>
+	<span class="k">if</span><span class="p">(</span><span class="nx">err</span><span class="p">){</span>
+		<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"数据库连接失败"</span><span class="p">);</span>
+	<span class="p">}</span><span class="k">else</span><span class="p">{</span>
+		<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="s2">"数据库连接成功"</span><span class="p">);</span>
+	<span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<ul>
+  <li>定义用户表结构</li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*schemas/users.js*/</span>
+<span class="c1">//exports暴露出去</span>
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">mongoose</span><span class="p">.</span><span class="nx">Schema</span><span class="p">({</span>
+	<span class="c1">//用户名</span>
+	<span class="na">username</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span>
+	<span class="c1">//密码</span>
+	<span class="na">password</span><span class="p">:</span> <span class="nb">String</span>
+<span class="p">})</span>
+</code></pre></div></div>
+
+<p>Schema代表数据库中的存储结构，一个Schema代表数据库中的一个表。数据结构是通过mongoose下的Schema方法的构造函数创建出来的对象，对象当中某一个属性代表数据中当中的某一个字段，后面的代表该字段的存储类型。</p>
+
+<ul>
+  <li>创建数据模型类</li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*models.js*/</span>
+<span class="kd">var</span> <span class="nx">mongoose</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'mongoose'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">usersSchema</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'../schemas/users'</span><span class="p">);</span>
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="nx">mongoose</span><span class="p">.</span><span class="nx">model</span><span class="p">(</span><span class="s1">'User'</span><span class="p">,</span><span class="nx">usersSchema</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>在实际使用当中，我们并不直接操作表结构，而是定义一个model模型类，通过操作模型来对数据进行增删改查。</p>
+
+<ul>
+  <li>bodyParser设置</li>
+</ul>
+
+<p>bodyParser中间件，用来处理post提交过来的数据。</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*app.js*/</span>
+<span class="c1">//加载body-parser模块</span>
+<span class="kd">var</span> <span class="nx">bodyParser</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'body-parser'</span><span class="p">);</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span> <span class="nx">bodyParser</span><span class="p">.</span><span class="nx">urlencoded</span><span class="p">({</span><span class="na">extended</span><span class="p">:</span> <span class="kc">true</span><span class="p">}));</span>
+</code></pre></div></div>
+
+<p>通过模块不用直接操作数据库，而是像操作对象一样操作数据库。</p>
+
+<p><code class="highlighter-rouge">.</code> 类方法，静态方法、
+<code class="highlighter-rouge">#</code> 对象方法</p>
+
+<ul>
+  <li>数据库验证</li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*api.js*/</span>
+<span class="kd">var</span> <span class="nx">User</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'../models/User'</span><span class="p">);</span>
+<span class="c1">//数据库验证：</span>
+	<span class="c1">//用户名是否已经被注册了，如果数据库中已经存在和我们要注册的用户名同名的数据，表示该用户名已经被注册了。</span>
+	<span class="nx">User</span><span class="p">.</span><span class="nx">findOne</span><span class="p">({</span>
+		<span class="na">username</span><span class="p">:</span> <span class="nx">username</span>
+	<span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">userInfo</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">if</span> <span class="p">(</span><span class="nx">userInfo</span><span class="p">){</span>
+			<span class="c1">//表示数据库中有该记录</span>
+			<span class="nx">responseData</span><span class="p">.</span><span class="nx">code</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+			<span class="nx">responseData</span><span class="p">.</span><span class="nx">message</span> <span class="o">=</span> <span class="s1">'用户名已经被注册了'</span><span class="p">;</span>
+			<span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">(</span><span class="nx">respoenseData</span><span class="p">);</span>
+			<span class="k">return</span><span class="p">;</span>
+		<span class="p">}</span>
+		<span class="c1">//保存用户注册的信息到数据库中</span>
+		<span class="kd">var</span> <span class="nx">user</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">User</span><span class="p">({</span>
+			<span class="na">username</span><span class="p">:</span> <span class="nx">username</span><span class="p">,</span>
+			<span class="na">password</span><span class="p">:</span> <span class="nx">password</span>
+		<span class="p">});</span>
+		<span class="k">return</span> <span class="nx">user</span><span class="p">.</span><span class="nx">save</span><span class="p">();</span>
+	<span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">newUserInfo</span><span class="p">)</span> <span class="p">{</span>
+		<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">newUserInfo</span><span class="p">);</span>
+		<span class="nx">responseData</span><span class="p">.</span><span class="nx">message</span> <span class="o">=</span> <span class="s1">'注册成功'</span><span class="p">;</span>
+		<span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">(</span><span class="nx">responseData</span><span class="p">);</span>
+	<span class="p">});</span>
+</code></pre></div></div>
+
+<h3 id="用户登录">用户登录</h3>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//查询数据库中相同用户名和密码的记录是否存在，如果存在则登录成功</span>
+	 <span class="nx">User</span><span class="p">.</span><span class="nx">findOne</span><span class="p">({</span>
+		 <span class="na">username</span><span class="p">:</span> <span class="nx">username</span><span class="p">,</span>
+		 <span class="na">password</span><span class="p">:</span> <span class="nx">password</span>
+	 <span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">userInfo</span><span class="p">)</span> <span class="p">{</span>
+		 <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nx">userInfo</span><span class="p">)</span> <span class="p">{</span>
+			 <span class="nx">responseData</span><span class="p">.</span><span class="nx">code</span> <span class="o">=</span> <span class="mi">2</span><span class="p">;</span>
+			 <span class="nx">responseData</span><span class="p">.</span><span class="nx">message</span> <span class="o">=</span> <span class="s1">'用户名或密码错误'</span><span class="p">;</span>
+			 <span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">(</span><span class="nx">responseData</span><span class="p">);</span>
+			 <span class="k">return</span><span class="p">;</span>
+		 <span class="p">}</span>
+		 <span class="c1">//用户名和密码是正确的</span>
+		 <span class="nx">responseData</span><span class="p">.</span><span class="nx">message</span> <span class="o">=</span> <span class="s1">'登录成功'</span><span class="p">;</span>
+		 <span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">(</span><span class="nx">responseData</span><span class="p">);</span>
+		 <span class="k">return</span><span class="p">;</span>
+	 <span class="p">})</span>
+<span class="p">})</span>
+</code></pre></div></div>
+<h3 id="使用cookie保存用户">使用cookie保存用户</h3>
+<p>登录成功之后页面刷新就回到初始页面，登录状态并没有保存下来，这里使用cookie保存用户状态。</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*app.js*/</span>
+<span class="c1">//加载cookies模块</span>
+<span class="kd">var</span> <span class="nx">Cookies</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'cookies'</span><span class="p">);</span>
+<span class="c1">//用户每次访问站点，都会走中间件</span>
+<span class="c1">//设置cookie</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="nx">res</span><span class="p">,</span><span class="nx">next</span><span class="p">){</span>
+	<span class="nx">req</span><span class="p">.</span><span class="nx">cookies</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Cookies</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="nx">res</span><span class="p">);</span>
+<span class="p">})</span>
+
+<span class="cm">/*api.js*/</span>
+<span class="nx">req</span><span class="p">.</span><span class="nx">cookies</span><span class="p">.</span><span class="kd">set</span><span class="p">(</span><span class="s1">'userInfo'</span><span class="p">,</span><span class="nx">JSON</span><span class="p">.</span><span class="nx">stringify</span><span class="p">({</span>
+	 <span class="na">_id</span><span class="p">:</span> <span class="nx">userInfo</span><span class="p">.</span><span class="nx">_id</span><span class="p">,</span>
+	 <span class="na">username</span><span class="p">:</span><span class="nx">userInfo</span><span class="p">.</span><span class="nx">username</span>
+ <span class="p">}));</span>
+<span class="c1">//发送一个cookie信息给浏览器，浏览器得到信息会保存起来，以后只要访问站点，每次都会通过头信息的方式发送给服务端，服务端通过这个cookie信息来验证是否为登录状态</span>
+
+</code></pre></div></div>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*app.js*/</span>
+<span class="nx">app</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="nx">res</span><span class="p">,</span><span class="nx">next</span><span class="p">){</span>
+	<span class="nx">req</span><span class="p">.</span><span class="nx">cookies</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Cookies</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="nx">res</span><span class="p">);</span>
+	<span class="c1">//解析登录用户cookie信息</span>
+	<span class="nx">req</span><span class="p">.</span><span class="nx">userInfo</span> <span class="o">=</span> <span class="p">{};</span>
+	<span class="k">if</span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">cookies</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="s1">'userInfo'</span><span class="p">)){</span>
+		<span class="c1">//try方法处理异常</span>
+		<span class="k">try</span><span class="p">{</span>
+			<span class="nx">req</span><span class="p">.</span><span class="nx">userInfo</span> <span class="o">=</span> <span class="nx">JSON</span><span class="p">.</span><span class="nx">parse</span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">cookies</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="s1">'userInfo'</span><span class="p">));</span>
+		<span class="p">}</span><span class="k">catch</span><span class="p">(</span><span class="nx">e</span><span class="p">){</span>
+
+		<span class="p">}</span>
+	<span class="p">}</span>
+	<span class="nx">next</span><span class="p">();</span>
+<span class="p">})</span>
+</code></pre></div></div>
+<p>记住登录状态使用swig模板实现</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% if userInfo._id %}
+&lt;div class="rightBox" id="userInfo" &gt;&lt;/div&gt;
+{% else %}
+&lt;div class="rightBox"id="loginBox"&gt;&lt;/div&gt;
+{% endif %}
+</code></pre></div></div>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">router</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="s1">'/'</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="nx">res</span><span class="p">,</span><span class="nx">next</span><span class="p">){</span>
+	<span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">'main/index'</span><span class="p">,{</span>
+		<span class="c1">//变量分配给模板使用</span>
+		<span class="na">userInfo</span><span class="p">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">userInfo</span>
+	<span class="p">});</span>
+<span class="p">})</span>
+</code></pre></div></div>
+<p>退出功能，将cookie干掉</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*index.js*/</span>
+<span class="nx">$</span><span class="p">(</span><span class="s1">'#logout'</span><span class="p">).</span><span class="nx">on</span><span class="p">(</span><span class="s1">'click'</span><span class="p">,</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+		<span class="nx">$</span><span class="p">.</span><span class="nx">ajax</span><span class="p">({</span>
+			<span class="na">url</span><span class="p">:</span> <span class="s1">'/api/user/logout'</span><span class="p">,</span>
+			<span class="na">success</span><span class="p">:</span> <span class="kd">function</span><span class="p">(</span><span class="nx">result</span><span class="p">)</span> <span class="p">{</span>
+				<span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nx">result</span><span class="p">.</span><span class="nx">code</span><span class="p">){</span>
+					<span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">reload</span><span class="p">();</span>
+				<span class="p">}</span>
+			<span class="p">}</span>
+		<span class="p">});</span>
+	<span class="p">});</span>
+<span class="p">});</span>
+<span class="cm">/*api.js*/</span>
+<span class="c1">//退出</span>
+<span class="nx">router</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="s1">'/user/logout'</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">req</span><span class="p">.</span><span class="nx">cookies</span><span class="p">.</span><span class="kd">set</span><span class="p">(</span><span class="s1">'userInfo'</span><span class="p">,</span><span class="kc">null</span><span class="p">);</span>
+	<span class="nx">res</span><span class="p">.</span><span class="nx">json</span><span class="p">(</span><span class="nx">responseData</span><span class="p">);</span>
+<span class="p">})</span>
+</code></pre></div></div>
+<h3 id="管理员">管理员</h3>
+<p>验证是否为管理员最后不要保存在cookie当中，因为我们要实时的验证用户是否是管理员</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*main.js*/</span>
+<span class="c1">//获取当前登录用户的类型，是否是管理员</span>
+			<span class="nx">User</span><span class="p">.</span><span class="nx">findById</span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">userInfo</span><span class="p">.</span><span class="nx">_id</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">userInfo</span><span class="p">)</span> <span class="p">{</span>
+				<span class="nx">req</span><span class="p">.</span><span class="nx">userInfo</span><span class="p">.</span><span class="nx">isAdmin</span> <span class="o">=</span> <span class="nb">Boolean</span><span class="p">(</span><span class="nx">userInfo</span><span class="p">.</span><span class="nx">isAdmin</span><span class="p">);</span><span class="c1">//转换为布尔值</span>
+				<span class="nx">next</span><span class="p">();</span><span class="c1">//调用next();</span>
+			<span class="p">})</span>
+<span class="cm">/*users.js*/</span>
+    <span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">mongoose</span><span class="p">.</span><span class="nx">Schema</span><span class="p">({</span>
+	<span class="c1">//用户名</span>
+	<span class="na">username</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span>
+	<span class="c1">//密码</span>
+	<span class="na">password</span><span class="p">:</span> <span class="nb">String</span><span class="p">,</span>
+	<span class="c1">//是否为管理员</span>
+	<span class="na">isAdmin</span><span class="p">:</span> <span class="p">{</span>
+		<span class="na">type</span> <span class="p">:</span> <span class="nb">Boolean</span><span class="p">,</span>
+		<span class="na">default</span><span class="p">:</span> <span class="kc">false</span>
+	<span class="p">}</span>
+<span class="p">})</span>
+<span class="c1">//在Schema添加isAdmin数据结构。</span>
+</code></pre></div></div>
+<p>判断是否为管理员后为其渲染相应的页面</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*admin.js*/</span>
+<span class="nx">router</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="nx">res</span><span class="p">,</span><span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
+	<span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nx">req</span><span class="p">.</span><span class="nx">userInfo</span><span class="p">.</span><span class="nx">isAdmin</span><span class="p">)</span> <span class="p">{</span>
+		<span class="c1">//如果当前用户非管理员</span>
+		<span class="nx">res</span><span class="p">.</span><span class="nx">send</span><span class="p">(</span><span class="s1">'对不起，您没有权限进入后台管理'</span><span class="p">);</span>
+		<span class="k">return</span>
+	<span class="p">}</span>
+	<span class="nx">next</span><span class="p">();</span>
+<span class="p">})</span>
+<span class="nx">router</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="s1">'/'</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="nx">res</span><span class="p">,</span><span class="nx">next</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">'admin/index'</span><span class="p">,{</span>
+		<span class="na">userInfo</span><span class="p">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">userInfo</span>
+	<span class="p">})</span>
+<span class="p">})</span>
+</code></pre></div></div>
+<p>渲染页面使用siwg模板继承，复用</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*layout.html*/</span>
+
+<span class="p">{</span><span class="o">%</span><span class="nx">block</span> <span class="nx">main</span><span class="o">%</span><span class="p">}{</span><span class="o">%</span><span class="nx">endblock</span><span class="o">%</span><span class="p">}</span>
+
+<span class="c1">//定义一个block块，起占位作用。</span>
+
+<span class="cm">/*admin.html*/</span>
+
+<span class="p">{</span><span class="o">%</span> <span class="kd">extends</span> <span class="s1">'layout.html'</span> <span class="o">%</span><span class="p">}</span>
+
+<span class="c1">//复用layout.html页面</span>
+
+<span class="p">{</span><span class="o">%</span><span class="nx">block</span> <span class="nx">main</span><span class="o">%</span><span class="p">}</span>
+
+</code></pre></div></div>
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;div</span> <span class="na">class=</span><span class="s">"jumbotron"</span><span class="nt">&gt;</span>
+<span class="nt">&lt;h1&gt;</span>Hello, !<span class="nt">&lt;/h1&gt;</span>
+<span class="nt">&lt;p&gt;</span>你已进入后台管理<span class="nt">&lt;/p&gt;</span>
+
+{%endblock%}
+
+</code></pre></div></div>
+<p>相对于面向对象当中的继承，重写block模块</p>
+
+<h3 id="用户管理">用户管理</h3>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*admin.js*/</span>
+<span class="c1">//用户管理</span>
+<span class="nx">router</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="s1">'/user'</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+	<span class="c1">//从数据库中读取所有的用户数据</span>
+	<span class="nx">User</span><span class="p">.</span><span class="nx">find</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">users</span><span class="p">)</span> <span class="p">{</span>
+		<span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">'admin/user_index'</span><span class="p">,{</span>
+			<span class="na">userInfo</span><span class="p">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">userInfo</span><span class="p">,</span>
+			<span class="c1">//传递User信息给用户模板</span>
+			<span class="na">users</span><span class="p">:</span> <span class="nx">users</span>
+		<span class="p">});</span>
+	<span class="p">});</span>
+<span class="p">});</span>
+</code></pre></div></div>
+<ul>
+  <li>用户信息展示</li>
+</ul>
+
+<div class="language-html highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nt">&lt;table</span> <span class="na">class=</span><span class="s">"table table-hover table-striped"</span><span class="nt">&gt;</span>
+	<span class="nt">&lt;tr&gt;</span>
+		<span class="nt">&lt;th&gt;</span>ID<span class="nt">&lt;/th&gt;</span>
+		<span class="nt">&lt;th&gt;</span>用户名<span class="nt">&lt;/th&gt;</span>
+		<span class="nt">&lt;th&gt;</span>密码<span class="nt">&lt;/th&gt;</span>
+		<span class="nt">&lt;th&gt;</span>管理员权限<span class="nt">&lt;/th&gt;</span>
+	<span class="nt">&lt;/tr&gt;</span>
+	
+	{% for user in users %}
+	
+	<span class="nt">&lt;tr&gt;</span>
+		<span class="nt">&lt;td&gt;&lt;/td&gt;</span>
+		<span class="nt">&lt;td&gt;&lt;/td&gt;</span>
+		<span class="nt">&lt;td&gt;&lt;/td&gt;</span>
+		<span class="nt">&lt;td&gt;</span>
+	
+		{%if user.isAdmin%}
+		true
+		{% else %}
+		false
+		{% endif %}
+	
+		<span class="nt">&lt;/td&gt;</span>
+	<span class="nt">&lt;/tr&gt;</span>
+	
+	{% endfor %}
+	
+<span class="nt">&lt;/table&gt;</span>
+</code></pre></div></div>
+<ul>
+  <li>对用户数据分页展示</li>
+</ul>
+
+<p>实际数据中，一般会有很多条，为了方便管理，通常对数据进行分页的展示。</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">router</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="s1">'/user'</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+	<span class="c1">//从数据库中读取所有的用户数据</span>
+	<span class="c1">//limit(Number): 限制获取的数据条数</span>
+	<span class="c1">//skip(Numbser): 忽略数据的条数</span>
+
+	<span class="cm">/**
+	 * 1.每页显示n条数据 skip:0 -&gt;(当前页-1) * limit
+	 * 2.需要忽略n条数据 skip: n
+	 */</span>
+
+	<span class="kd">var</span> <span class="nx">page</span> <span class="o">=</span> <span class="nb">Number</span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">page</span> <span class="o">||</span> <span class="mi">1</span><span class="p">);</span><span class="c1">//用户不传值，默认为第一页</span>
+	<span class="kd">var</span> <span class="nx">limit</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+	<span class="kd">var</span> <span class="nx">skip</span> <span class="o">=</span> <span class="p">(</span><span class="nx">page</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="nx">limit</span><span class="p">;</span>
+	<span class="nx">User</span><span class="p">.</span><span class="nx">find</span><span class="p">().</span><span class="nx">limit</span><span class="p">(</span><span class="nx">limit</span><span class="p">).</span><span class="nx">skip</span><span class="p">(</span><span class="nx">skip</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">users</span><span class="p">)</span> <span class="p">{</span>
+		<span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">'admin/user_index'</span><span class="p">,{</span>
+			<span class="na">userInfo</span><span class="p">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">userInfo</span><span class="p">,</span>
+			<span class="c1">//传递User信息给用户模板</span>
+			<span class="na">users</span><span class="p">:</span> <span class="nx">users</span><span class="p">,</span>
+			<span class="c1">//传递page给模板</span>
+			<span class="na">page</span><span class="p">:</span> <span class="nx">page</span>
+		<span class="p">});</span>
+	<span class="p">});</span>
+<span class="p">});</span>
+</code></pre></div></div>
+<ul>
+  <li>计算数据条数</li>
+</ul>
+
+<p>首先查询数据库数据总条数，然后限制取值范围，最后在模板总引用并展示给用户。</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*查询数据库数据总条数 */</span>
+<span class="nx">User</span><span class="p">.</span><span class="nx">count</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">count</span><span class="p">){</span>
+		<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">count</span><span class="p">);</span>
+		<span class="c1">//计算总页数</span>
+		<span class="kd">var</span> <span class="nx">pages</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">ceil</span><span class="p">(</span><span class="nx">count</span><span class="o">/</span><span class="nx">limit</span><span class="p">);</span>
+		<span class="c1">//取值不能超过pages</span>
+		<span class="nx">page</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">min</span><span class="p">(</span><span class="nx">page</span><span class="p">,</span><span class="nx">pages</span><span class="p">);</span>
+		<span class="c1">//取值不能小于1</span>
+		<span class="nx">page</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">max</span><span class="p">(</span><span class="nx">page</span><span class="p">,</span><span class="mi">1</span><span class="p">);</span>
+	<span class="p">});</span>
+</code></pre></div></div>
+<ul>
+  <li>添加分类功能</li>
+</ul>
+
+<p>首先添加分类的Schema表结构</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*categories.js*/</span>
+
+<span class="c1">//引入mongoose</span>
+<span class="kd">var</span> <span class="nx">mongoose</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'mongoose'</span><span class="p">);</span>
+<span class="c1">//分类的表结构</span>
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">mongoose</span><span class="p">.</span><span class="nx">Schema</span><span class="p">({</span>
+	<span class="c1">//分类名称</span>
+	<span class="na">name</span><span class="p">:</span> <span class="nb">String</span>
+<span class="p">})</span>
+</code></pre></div></div>
+<p>然后创建一个模型</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="cm">/*models*/</span>
+<span class="kd">var</span> <span class="nx">mongoose</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'mongoose'</span><span class="p">);</span>
+<span class="kd">var</span> <span class="nx">categoriesSchema</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'../schemas/categories'</span><span class="p">);</span>
+<span class="nx">module</span><span class="p">.</span><span class="nx">exports</span> <span class="o">=</span> <span class="nx">mongoose</span><span class="p">.</span><span class="nx">model</span><span class="p">(</span><span class="s1">'User'</span><span class="p">,</span><span class="nx">categoriesSchema</span><span class="p">);</span>
+<span class="cm">/*admin.js*/</span>
+<span class="c1">//引入分类模型</span>
+<span class="kd">var</span> <span class="nx">Category</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'../models/Category'</span><span class="p">);</span>
+</code></pre></div></div>
+<p>判断是否存在分类名称,存在则渲染error页面，不存在则保存。</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="c1">//数据库中是否已经存在名称</span>
+	<span class="nx">Category</span><span class="p">.</span><span class="nx">findOne</span><span class="p">({</span>
+		<span class="na">name</span><span class="p">:</span> <span class="nx">name</span>
+	<span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">rs</span><span class="p">){</span>
+		<span class="k">if</span><span class="p">(</span><span class="nx">rs</span><span class="p">){</span>
+			<span class="c1">//数据库中已经存在该分类了</span>
+			<span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">'admin/error'</span><span class="p">,{</span>
+				<span class="na">userInfo</span><span class="p">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">userInfo</span><span class="p">,</span>
+				<span class="na">message</span><span class="p">:</span> <span class="s1">'分类已经存在了'</span>
+			<span class="p">})</span>
+			<span class="k">return</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">reject</span><span class="p">();</span>
+		<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+			<span class="c1">//数据库中不存在该分类，可以保存</span>
+			<span class="k">return</span> <span class="k">new</span> <span class="nx">Category</span><span class="p">({</span>
+				<span class="na">name</span><span class="p">:</span> <span class="nx">name</span>
+			<span class="p">}).</span><span class="nx">save</span><span class="p">();</span>
+		<span class="p">}</span>
+	<span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">newCategory</span><span class="p">)</span> <span class="p">{</span>
+		<span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">'admin/success'</span><span class="p">,{</span>
+			<span class="na">userInfo</span><span class="p">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">userInfo</span><span class="p">,</span>
+			<span class="na">message</span><span class="p">:</span> <span class="s1">'分类保存成功'</span><span class="p">,</span>
+			<span class="na">url</span><span class="p">:</span> <span class="s1">'/admin/category'</span>
+		<span class="p">});</span>
+	<span class="p">})</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<ul>
+  <li>创建分类首页</li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">router</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="s1">'/category'</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+	<span class="kd">var</span> <span class="nx">page</span> <span class="o">=</span> <span class="nb">Number</span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">page</span> <span class="o">||</span> <span class="mi">1</span><span class="p">);</span>
+    <span class="kd">var</span> <span class="nx">limit</span> <span class="o">=</span> <span class="mi">10</span><span class="p">;</span>
+    <span class="kd">var</span> <span class="nx">pages</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="nx">Category</span><span class="p">.</span><span class="nx">count</span><span class="p">().</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">count</span><span class="p">)</span> <span class="p">{</span>
+        <span class="c1">//计算总页数</span>
+        <span class="nx">pages</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">ceil</span><span class="p">(</span><span class="nx">count</span> <span class="o">/</span> <span class="nx">limit</span><span class="p">);</span>
+        <span class="c1">//取值不能超过pages</span>
+        <span class="nx">page</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">min</span><span class="p">(</span> <span class="nx">page</span><span class="p">,</span> <span class="nx">pages</span> <span class="p">);</span>
+        <span class="c1">//取值不能小于1</span>
+        <span class="nx">page</span> <span class="o">=</span> <span class="nb">Math</span><span class="p">.</span><span class="nx">max</span><span class="p">(</span> <span class="nx">page</span><span class="p">,</span> <span class="mi">1</span> <span class="p">);</span>
+        <span class="kd">var</span> <span class="nx">skip</span> <span class="o">=</span> <span class="p">(</span><span class="nx">page</span> <span class="o">-</span> <span class="mi">1</span><span class="p">)</span> <span class="o">*</span> <span class="nx">limit</span><span class="p">;</span>
+		<span class="nx">Category</span><span class="p">.</span><span class="nx">find</span><span class="p">().</span><span class="nx">limit</span><span class="p">(</span><span class="nx">limit</span><span class="p">).</span><span class="nx">skip</span><span class="p">(</span><span class="nx">skip</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">categories</span><span class="p">)</span> <span class="p">{</span>
+			<span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">'admin/category_index'</span><span class="p">,{</span>
+				<span class="na">userInfo</span><span class="p">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">userInfo</span><span class="p">,</span>
+				<span class="c1">//传递User信息给用户模板</span>
+				<span class="na">categories</span><span class="p">:</span> <span class="nx">categories</span><span class="p">,</span>
+				<span class="c1">//传递总条数</span>
+				<span class="na">count</span><span class="p">:</span> <span class="nx">count</span><span class="p">,</span>
+				<span class="c1">//传递页数</span>
+				<span class="na">limit</span><span class="p">:</span> <span class="nx">limit</span><span class="p">,</span>
+				<span class="c1">//传递总页数</span>
+				<span class="na">pages</span><span class="p">:</span> <span class="nx">pages</span>
+			<span class="p">});</span>
+		<span class="p">});</span>
+	<span class="p">});</span>
+<span class="p">});</span>
+</code></pre></div></div>
+
+<ul>
+  <li>分类修改页</li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//分类修改</span>
+<span class="nx">router</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="s1">'/category/edit'</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+	<span class="c1">//获取要修改的分类的信息,并且用表单的形式展现出来</span>
+	<span class="kd">var</span> <span class="nx">id</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">id</span> <span class="o">||</span> <span class="s1">''</span><span class="p">;</span>
+	<span class="c1">//获取要修改的分类信息</span>
+	<span class="nx">Category</span><span class="p">.</span><span class="nx">findOne</span><span class="p">({</span>
+		<span class="na">_id</span><span class="p">:</span> <span class="nx">id</span>
+	<span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">category</span><span class="p">)</span> <span class="p">{</span>
+		<span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nx">category</span><span class="p">)</span> <span class="p">{</span>
+			<span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">'admin/error'</span><span class="p">,{</span>
+				<span class="na">userInfo</span><span class="p">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">userInfo</span><span class="p">,</span>
+				<span class="na">message</span><span class="p">:</span> <span class="s1">'分类信息不存在'</span>
+			<span class="p">});</span>
+			<span class="k">return</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">reject</span><span class="p">();</span>
+		<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+			<span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">'admin/category_edit'</span><span class="p">,{</span>
+				<span class="na">userInfo</span><span class="p">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">userInfo</span><span class="p">,</span>
+				<span class="na">category</span><span class="p">:</span> <span class="nx">category</span>
+			<span class="p">})</span>
+		<span class="p">}</span>
+	<span class="p">})</span>
+<span class="p">})</span>
+</code></pre></div></div>
+
+<ul>
+  <li>分类修改保存页
+分类的保存，1.首先要获取post提交过来的名称，然后获取要修改的分类信息，此时分两种情况判断</li>
+</ul>
+
+<p>第一种情况是用户没有做任何修改提交时，默认渲染修改成功页面</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//当用户没有做任何的修改提交的时候</span>
+<span class="k">if</span> <span class="p">(</span><span class="nx">name</span> <span class="o">==</span> <span class="nx">category</span><span class="p">.</span><span class="nx">name</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">'admin/success'</span><span class="p">,{</span>
+		<span class="na">userInfo</span><span class="p">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">userInfo</span><span class="p">,</span>
+		<span class="na">message</span><span class="p">:</span> <span class="s1">'修改成功'</span><span class="p">,</span>
+		<span class="na">url</span><span class="p">:</span> <span class="s1">'/admin/category'</span>
+	<span class="p">});</span>
+	<span class="k">return</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">reject</span><span class="p">();</span>
+<span class="p">}</span><span class="k">else</span><span class="p">{</span>
+	<span class="c1">//要修改的分类名称是否已经在数据库中存在</span>
+	<span class="k">return</span> <span class="nx">Category</span><span class="p">.</span><span class="nx">findOne</span><span class="p">({</span>
+		<span class="c1">//$ne表示不相等</span>
+		<span class="na">_id</span><span class="p">:</span> <span class="p">{</span><span class="na">$ne</span><span class="p">:</span> <span class="nx">id</span><span class="p">},</span>
+		<span class="na">name</span><span class="p">:</span> <span class="nx">name</span>
+	<span class="p">});</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<p>第二种情况也细分为两种，分别是1.数据库中已经存在相同的分类名称</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="k">if</span><span class="p">(</span><span class="nx">sameCategory</span><span class="p">)</span> <span class="p">{</span>
+			<span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">'admin/error'</span><span class="p">,{</span>
+				<span class="na">userInfo</span><span class="p">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">userInfo</span><span class="p">,</span>
+				<span class="na">message</span><span class="p">:</span> <span class="s1">'已经存在同名分类'</span>
+			<span class="p">});</span>
+			<span class="k">return</span> <span class="nb">Promise</span><span class="p">.</span><span class="nx">reject</span><span class="p">();</span>
+		<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+			<span class="k">return</span> <span class="nx">Category</span><span class="p">.</span><span class="nx">update</span><span class="p">({</span>
+				<span class="na">_id</span><span class="p">:</span> <span class="nx">id</span>
+			<span class="p">},{</span>
+				<span class="na">name</span><span class="p">:</span> <span class="nx">name</span>
+			<span class="p">});</span>
+		<span class="p">}</span>
+</code></pre></div></div>
+<p>2.是数据库中没有相同的分类名称，则修改成功</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">'admin/success'</span><span class="p">,{</span>
+			<span class="na">userInfo</span><span class="p">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">userInfo</span><span class="p">,</span>
+			<span class="na">message</span><span class="p">:</span> <span class="s1">'修改成功'</span><span class="p">,</span>
+			<span class="na">url</span><span class="p">:</span> <span class="s1">'/admin/category'</span>
+		<span class="p">});</span>
+</code></pre></div></div>
+
+<ul>
+  <li>分类的删除</li>
+</ul>
+
+<p>这一步相对简单,容易处理</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">router</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="s1">'/category/delete'</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+	<span class="c1">//获取要删除的分类的id</span>
+	<span class="kd">var</span> <span class="nx">id</span> <span class="o">=</span> <span class="nx">req</span><span class="p">.</span><span class="nx">query</span><span class="p">.</span><span class="nx">id</span> <span class="o">||</span> <span class="s1">''</span><span class="p">;</span>
+	<span class="nx">Category</span><span class="p">.</span><span class="nx">remove</span><span class="p">({</span>
+		<span class="na">_id</span><span class="p">:</span> <span class="nx">id</span>
+	<span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+		<span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">'admin/success'</span><span class="p">,{</span>
+			<span class="na">userInfo</span><span class="p">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">userInfo</span><span class="p">,</span>
+			<span class="na">message</span><span class="p">:</span> <span class="s1">'删除成功'</span><span class="p">,</span>
+			<span class="na">url</span><span class="p">:</span> <span class="s1">'/admin/category'</span>
+		<span class="p">});</span>
+	<span class="p">});</span>
+<span class="p">});</span>
+</code></pre></div></div>
+<p>到这里分类页面的增删改查就已经完成了。</p>
+
+<h3 id="内容页面">内容页面</h3>
+<ul>
+  <li>内容添加页面</li>
+</ul>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">router</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="s1">'/content/add'</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+	<span class="c1">//sort排序</span>
+	<span class="nx">Category</span><span class="p">.</span><span class="nx">find</span><span class="p">().</span><span class="nx">sort</span><span class="p">({</span><span class="na">_id</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">}).</span><span class="nx">then</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">categories</span><span class="p">)</span> <span class="p">{</span>
+		<span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">'admin/content_add'</span><span class="p">,{</span>
+			<span class="na">userInfo</span><span class="p">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">userInfo</span><span class="p">,</span>
+			<span class="na">categories</span><span class="p">:</span> <span class="nx">categories</span>
+		<span class="p">});</span>
+	<span class="p">});</span>
+<span class="p">});</span>
+</code></pre></div></div>
+<p>渲染完添加页面后，判断内容分类与内容标题是否为空，不为空就保存到数据库中。</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//创建Schema模型</span>
+<span class="cm">/*admin.js*/</span>
+<span class="kd">var</span> <span class="nx">Content</span> <span class="o">=</span> <span class="nx">require</span><span class="p">(</span><span class="s1">'../models/Content'</span><span class="p">);</span>
+
+<span class="c1">//内容保存</span>
+<span class="nx">router</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">'/content/add'</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="nx">res</span><span class="p">)</span> <span class="p">{</span>
+	<span class="nx">console</span><span class="p">.</span><span class="nx">log</span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">);</span>
+	<span class="k">if</span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">category</span> <span class="o">==</span> <span class="s1">''</span><span class="p">){</span>
+		<span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">'admin/error'</span><span class="p">,{</span>
+			<span class="na">userInfo</span><span class="p">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">userInfo</span><span class="p">,</span>
+			<span class="na">message</span><span class="p">:</span> <span class="s1">'内容分类不能为空'</span>
+		<span class="p">})</span>
+		<span class="k">return</span><span class="p">;</span>
+	<span class="p">}</span>
+
+	<span class="k">if</span><span class="p">(</span><span class="nx">req</span><span class="p">.</span><span class="nx">body</span><span class="p">.</span><span class="nx">title</span> <span class="o">==</span> <span class="s1">''</span><span class="p">){</span>
+		<span class="nx">res</span><span class="p">.</span><span class="nx">render</span><span class="p">(</span><span class="s1">'admin/error'</span><span class="p">,{</span>
+			<span class="na">userInfo</span><span class="p">:</span> <span class="nx">req</span><span class="p">.</span><span class="nx">userInfo</span><span class="p">,</span>
+			<span class="na">message</span><span class="p">:</span> <span class="s1">'内容标题不能为空'</span>
+		<span class="p">})</span>
+		<span class="k">return</span><span class="p">;</span>
+	<span class="p">}</span>
+	<span class="c1">//保存数据到数据库</span>
+<span class="p">})</span>
+</code></pre></div></div>
+
+      <div class="page-footer">
+        <div class="page-share">
+          <a href="https://twitter.com/intent/tweet?text=Node.js+MongoDB博客&url=http://localhost:4000/node.js-blog/" title="Share on Twitter" rel="nofollow" target="_blank">Twitter</a>
+          <a href="https://plus.google.com/share?url=http://localhost:4000/node.js-blog/" title="Share on Google+" rel="nofollow" target="_blank">Google+</a>
+		  <a href="http://service.weibo.com/share/share.php?appkey=/node.js-blog/&url=http://localhost:4000" title="Share on Facebook" rel="nofollow" target="_blank">Weibo</a>
+        </div>
+
+        <div class="page-tag">
+          
+            <a href="/tags#Node" class="tag">&#35; Node</a>
+          
+            <a href="/tags#Blog" class="tag">&#35; Blog</a>
+          
+            <a href="/tags#MongoDB" class="tag">&#35; MongoDB</a>
+          
+        </div>
+      </div>
+      <section class="comment-area">
+  <div class="comment-wrapper">
+    
+    <div id="disqus_thread" class="article-comments"></div>
+    <script>
+      (function() {
+          var d = document, s = d.createElement('script');
+          s.src = '//mr-brown.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+      })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    
+  </div>
+</section> <!-- End Comment Area -->
+
+    </div> <!-- End Wrap Content -->
+	<div>
+		
+	</div>
+  </div> <!-- End Page Content -->
+</article> <!-- End Article Page -->
+
+</div>
+
+  </div>
+  
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', '', 'auto');
+  ga('send', 'pageview');
+</script> <!-- End Analytics -->
+
+</body>
+</html>
