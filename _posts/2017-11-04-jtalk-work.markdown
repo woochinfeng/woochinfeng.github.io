@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 看够了，来聊聊JTalk面基!
-date: 2017-11-11 23:32:20 +0300
+date: 2017-11-04 23:32:20 +0300
 description: An offline activities # Add post description (optional)
 img: jtalk-banner.png # Add image post (optional)
 tags: [JTalk]

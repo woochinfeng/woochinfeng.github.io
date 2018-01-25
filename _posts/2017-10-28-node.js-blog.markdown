@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Node.js+MongoDB博客
-date: 2017-11-28 00:00:00 +0300
+date: 2017-10-28 00:00:00 +0300
 description: Node.js+MongoDB # Add post description (optional)
 img: node-logo.jpeg # Add image post (optional)
 tags: [Node, Blog, MongoDB] # add tag
