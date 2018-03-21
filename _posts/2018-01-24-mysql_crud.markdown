@@ -1,7 +1,7 @@
 ---
 layout: post
 title: MySQL增删改查
-date: 2018-1-24 00:00:00 +0300
+date: 2018-01-24 00:00:00 +0300
 description: MySQL # Add post description (optional)
 img:  # Add image post (optional)
 tags: [MySQL, DATA, PHP] # add tag

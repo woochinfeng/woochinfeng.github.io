@@ -1,7 +1,7 @@
 ---
 layout: post
 title: PHP数据类型与基本使用方法
-date: 2018-1-12 00:00:00 +0300
+date: 2018-01-12 00:00:00 +0300
 description: PHP # Add post description (optional)
 img:  # Add image post (optional)
 tags: [PHP, DATA, TYPE] # add tag

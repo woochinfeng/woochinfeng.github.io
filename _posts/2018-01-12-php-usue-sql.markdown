@@ -1,7 +1,7 @@
 ---
 layout: post
 title: PHP常用函数
-date: 2018-1-12 00:00:00 +0300
+date: 2018-01-12 00:00:00 +0300
 description: PHP # Add post description (optional)
 img:  # Add image post (optional)
 tags: [PHP, USUELLES, SQL] # add tag
