@@ -340,9 +340,12 @@ app.use(function(req,res,next){
 	}
 	next();
 })
+
 ```
+
 记住登录状态使用swig模板实现
 
+```js
 {% raw %}
     {% if userInfo._id %}
 	<div class="rightBox" id="userInfo" ></div>
@@ -350,6 +353,7 @@ app.use(function(req,res,next){
 	<div class="rightBox"id="loginBox"></div>
 	{% endif %}
 {% endraw %}
+```
 
 ```js
 router.get('/',function(req,res,next){
