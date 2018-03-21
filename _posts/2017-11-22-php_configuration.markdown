@@ -1,0 +1,113 @@
+---
+layout: post
+title: MAC PHP环境配置（Nginx MySQL PHP）
+date: 2017-11-22 00:00:00 +0300
+description: PHP # Add post description (optional)
+img:  # Add image post (optional)
+tags: [PHP, MAC, MySQL] # add tag
+
+---
+#### 1. 安装brew
+> $ /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
+#### 2.安装MySQL
+> $ brew install mysql
+
+##### 启动MySQL
+> $ brew services start mysql
+
+安装完成后为MySQL设置密码
+首先无密码登录，用户名为root
+> $ mysql -u root
+
+在MySQL中操作
+```
+>update mysql.user set authentication_string="new password" where User='root'；
+>flush privileges；
+>quit
+```
+
+#### 3. 安装PHP
+
+> $ brew install homebrew/php/php70 homebrew/php/php70-mcrypt homebrew/php/php70-gmagick homebrew/php/php70-opcache homebrew/php/php70-xdebug
+
+安装的是PHP7.0，完成之后输入
+
+```
+export PATH="/usr/local/sbin:$PATH"  
+echo 'export PATH="/usr/local/sbin:$PATH"' >> ~/.bash_profile  
+```
+###### 查询版本号
+> $ php -v
+
+> $ php-fpm -v
+
+##### 启动php-fpm
+
+> $ sudo php-fpm
+
+##### 结束php-fpm
+
+> $ sudo pkill php-fpm
+
+注意在终端中启动php-fpm之后未结束前不要关闭窗口，若输入其他命令应该新建窗口，非正常关闭重新启动将显示端口被占用，此时需要修改默认的端口9000为其他端口。修改方法在介绍完Nginx的安装之后在说明，因为其中涉及到Nginx的相关设置。
+
+#### 4. 安装Nginx
+这是**关键步骤**
+
+> $ brew install --with-http2 nginx
+
+打开设置文件
+
+> $ vim /usr/local/etc/nginx/nginx.conf
+
+根据需要做如下修改
+```
+server {
+    listen       8080; #默认端口为8080
+    server_name  localhost; #网站地址
+
+    #charset koi8-r;
+
+    #access_log  logs/host.access.log  main;
+
+    #如果想使用80端口，需要给予权限，添加下面两行并参考下一个步骤，不需要则可以跳过
+    ssl_certificate ssl/nginx.crt;
+    ssl_certificate_key ssl/nginx.key;
+
+    location / {
+        root   html; #html为网站根目录，可以自己修改
+        index  index.html index.htm; #添加index.php
+    }
+```
+
+生成密钥给予权限以使用80端口
+
+> $ sudo mkdir /usr/local/etc/nginx/ssl/  
+
+> $ sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /usr/local/etc/nginx/ssl/nginx.key -out /usr/local/etc/nginx/ssl/nginx.crt
+
+设置Nginx支持php
+在刚才的配置文件中找到以下几行，去掉前面的井号，即使注释内容生效。并做相应修改
+
+```
+location ~ \.php$ {
+    root           html; #此处的根目录应与上面的设置的一致
+    fastcgi_pass   127.0.0.1:9000; #此处可以设置php-fpm默认端口
+    fastcgi_index  index.php;
+    fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_name; #此处将/scripts$fastcgi_script_name修改为根目录$fastcgi_script_name
+    include        fastcgi_params; #将此行代码与上一行对调位置
+}
+```
+设置完成
+
+##### 启动Nginx
+> $ sudo nginx
+
+##### 结束/重载（配置文件）Nginx
+
+> $ sudo nginx -s stop/reload
+
+##### 关于修改php-fpm默认端口的说明
+
+在前面Nginx配置文件注释中已经有提到一处php-fpm默认端口的修改，这是在Nginx中进行设置，接下来只需在php-fpm的配置文件中另外修改即可。文件路径```/usr/local/etc/php/7.0/php-fpm.d/www.conf```，在文件中找到```listen = 127.0.0.1:9000```进行修改即可。
