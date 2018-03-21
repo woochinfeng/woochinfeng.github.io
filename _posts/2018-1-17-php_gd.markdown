@@ -1,0 +1,78 @@
+---
+layout: post
+title: PHP图片处理（GD)
+date: 2018-1-12 00:00:00 +0300
+description: PHP # Add post description (optional)
+img:  # Add image post (optional)
+tags: [PHP, GD, PHOTO] # add tag
+
+---
+
+- `getimagesize`（图片地址）
+    - 取得图像信息
+    - 返回数组，下标为2时, 参数代表（1 = GIF, 2 = JPG, 3 = PNG ...）
+
+
+- `imagecreatefromgif/jpeg/png`
+    - 由文件或URL创建一个新图像（把图片资源型）
+    - 变量函数
+    ```php
+     //变量函数赋值
+     $imagecreatefrom = "imagecreatefromgif";
+     //使用变量函数
+     $imagecreatefrom($img);
+    ```
+
+- `imagesx`（获取图片的宽（必须是资源型））
+
+- `imagesy`（获取图片的高（必须是资源型））
+
+- `imagecreatetruecolor` （宽，高）;
+    - 生成图片（新建一个真彩图片）
+
+- `imagecopyresampled` （生成**缩略图核心函数**）
+    - 十个参数
+        - 1）目标图片（缩略图）-资源型
+        - 2）原图 - 资源型
+        -  3）目标图片起始 `X` 坐标
+        -  4）目标图片起始 `Y` 坐标
+        -  5）原始图片起始 `X` 坐标
+        -  6）原始图片起始 `Y` 坐标
+         -  7）目标图片结束 `X` 坐标
+        -  8）目标图片结束 `Y` 坐标
+        -  9）原始图片结束 `X` 坐标
+        -  10）原始图片结束 `Y` 坐标
+
+- `dirname` （返回路径中的目录部分）（非GD)
+- `basename` （返回路径中的文件部分）（非GD）
+- `imagegif/jpeg/png`  （目标图片，路径/文件名)
+    - 输出图像到浏览器或文件
+
+- ##### `imagecopy`（图片水印的核心函数）
+    - 八个参数
+
+- `imagecolorallocate` 为一幅图像创建颜色
+    - 四个参数($img(资源型), r(0-255), g, b);
+
+- `imagefilledrectangle` 画一矩形并填充（**图片验证码重要函数**）
+    - 六个参数($img(资源型), 起始X, 起始Y, 结束X, 结束Y, color);
+
+- `imagettftext` (向图像写入文本)(**图像验证码核心函数**)
+    - 八个参数
+        - 1）目标图片（资源型）
+        - 2）字体大小
+        - 3）倾斜角度（-15°——15°)
+        - 4）字体位置 X （基于基线）
+        - 5）字体位置 Y
+        - 6）字体颜色
+        - 7）字体路径（fonts）
+        - 8）写入的文本
+
+- `imagesetpixel` （画点）
+- `imageline`（画线）
+- `imagearc`（画圆）（弧度）
+
+
+输出图片类型
+
+`header('Content-Type: image/gif')`;
