@@ -15,6 +15,7 @@ tags: [PHP, DATA, TYPE] # add tag
 ```
 phpinfo();//系统函数
 ```
+
 - php文件理论上可以放在项目的任意位置
 
 - php文件后缀名是```.php```
@@ -37,9 +38,12 @@ php标记符以外的代码都是html代码
 //注释内容
 
 #注释内容
+
 ```
 
+
 - 多行注释
+
 ```
 /*
 *注释内容
@@ -47,15 +51,17 @@ php标记符以外的代码都是html代码
 ```
 
 - php可以像页面输出html标签
+
 ```
 echo '<b> name </b>'
 ```
+
 ### php变量
-- 以$为关键字,$后面跟着变量名
+- 以`$`为关键字,`$`后面跟着变量名
 
-- 用```=```来给变量赋值；
+- 用`=`来给变量赋值；
 
-- 变量名要语义化，要有意义，工作中用到‘驼峰命名’；```$userName```
+- 变量名要语义化，要有意义，工作中用到‘驼峰命名’；`$userName`
 
 - 变量名首位必须**以字母或下划线开头**
 
@@ -106,7 +112,7 @@ echo '<b> name </b>'
 
 php中共**九种**数据类型
 
-```var_dump()```可以将变量的数据类型一同打印到页面上，可以传多个值
+`var_dump()`可以将变量的数据类型一同打印到页面上，可以传多个值
 
 （标量类型，基础类型）    
 - 布尔类型（true/false）
@@ -132,18 +138,19 @@ php中共**九种**数据类型
         - 删除 ，利用系统函数unset($arr[下标/键名])
 
 - 对象
-- ```php
-    //创建对象
-    class className{
-        function fuName($a) {
-            echo $a;
-        }
-    }
-    //实例化 new
-    $claName = new className();
-    //调用对象方法
-    $claName->fuName('name')
-    ```
+
+	```php
+	    //创建对象
+	    class className{
+	        function fuName($a) {
+	            echo $a;
+	        }
+	    }
+	    //实例化 new
+	    $claName = new className();
+	    //调用对象方法
+	    $claName->fuName('name')
+	```
     - 创建类
         - 利用class关键字 后面跟上类名
     - 实例化对象
@@ -191,18 +198,17 @@ $a = 1+'string20'; //1(int)
 
 转换成其他类型
 
-- ```(int)```,(integer) - 转换为整形 integer
-- ```(bool)```,(boolean) - 转换为布尔类型 boolean
-- ```(float)```,(double),(real) - 转换为浮点型 float
-- ```(string)``` - 转换为字符串 string
-- ```(array)``` - 转换为数组 array
-- ```(object)``` - 转换为对象 object
-- ```(unset)``` - 转换为NULL
+- `(int)`(integer) - 转换为整形 integer
+- `(bool)`(boolean) - 转换为布尔类型 boolean
+- `(float)`(double)/(real) - 转换为浮点型 float
+- `(string)` - 转换为字符串 string
+- `(array)` - 转换为数组 array
+- `(object)` - 转换为对象 object
+- `(unset)` - 转换为NULL
 
 ```php
 $num = '123'
 (string) $num
 ```
 
-表达式
-任何有值的东西 基石
+表达式是任何有值的东西的基石
