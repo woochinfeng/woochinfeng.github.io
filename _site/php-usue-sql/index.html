@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>PHP常用函数 - Rudder's Blog</title>
+
+  <!-- Edit site and author settings in `_config.yml` to make the social details your own -->
+
+    <meta content="Rudder's Blog" property="og:site_name">
+  
+    <meta content="PHP常用函数" property="og:title">
+  
+  
+    <meta content="article" property="og:type">
+  
+  
+    <meta content="PHP" property="og:description">
+  
+  
+    <meta content="http://localhost:4000/php-usue-sql/" property="og:url">
+  
+  
+    <meta content="2018-01-12T05:00:00+08:00" property="article:published_time">
+    <meta content="http://localhost:4000/about/" property="article:author">
+  
+  
+    <meta content="/img/rudder-wu.png" property="og:image">
+  
+  
+    
+  
+  
+    
+    <meta content="PHP" property="article:tag">
+    
+    <meta content="USUELLES" property="article:tag">
+    
+    <meta content="SQL" property="article:tag">
+    
+  
+
+  
+    <meta name="twitter:card" content="PHP">
+  
+    <meta name="twitter:site" content="@">
+    <meta name="twitter:creator" content="@">
+  
+    <meta name="twitter:title" content="PHP常用函数">
+  
+  
+    <meta name="twitter:url" content="http://localhost:4000/php-usue-sql/">
+  
+  
+    <meta name="twitter:description" content="PHP">
+  
+  
+    <meta name="twitter:image:src" content="http://localhost:4000/img/rudder-wu.png">
+  
+
+	<meta name="description" content="PHP">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta property="og:image" content="">
+	<!-- <link rel="shortcut icon" href="/assets/img/favicon/favicon.ico" type="image/x-icon"> -->
+	<link rel="shortcut icon" href="/assets/img/favicon/favicon.ico" type="image/x-icon">
+	<link rel="apple-touch-icon" href="/assets/img/favicon/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/assets/img/favicon/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="/assets/img/favicon/apple-touch-icon-114x114.png">
+	<!-- Chrome, Firefox OS and Opera -->
+	<meta name="theme-color" content="#263959">
+	<!-- Windows Phone -->
+	<meta name="msapplication-navbutton-color" content="#263959">
+	<!-- iOS Safari -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="#263959">
+	<!-- Google Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=PT+Serif:400,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="/assets/fonts/font-awesome/css/font-awesome.min.css">
+	<!-- Styles -->
+	<link rel="stylesheet" href="/assets/css/main.css">
+</head>
+
+<body>
+
+  <div class="wrapper">
+    <div class="content-box content-box-clear clearfix">
+  <article class="article-page">
+  <div class="page-content">
+	  
+	  <aside class="sidebar">
+  	  <header>
+  	    <div class="about">
+  	      <div class="cover-author-image">
+  	        <a href="/"><img src="/assets/img/rudder-wu.png" alt="Rudder"></a>
+  	      </div>
+  	      <div class="author-name">Rudder</div>
+  	      <p>临渊羡鱼，不如退而结网</p>
+  	    </div>
+  	  </header> <!-- End Header -->
+  	  <footer>
+  	    <section class="contact">
+  	      <h3 class="contact-title">Contact me</h3>
+  	      <ul>
+  	        
+  	          <li><a href="https://www.weibo.com/5544217447/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" target="_blank"><i class="fa fa-weibo" aria-hidden="true"></i></a></li>
+  	        
+  	        
+  	          <li class="github"><a href="https://github.com/worldkingwu" target="_blank"><i class="fa fa-github"></i></a></li>
+  	        
+  	        
+  	          <li class="email"><a href="mailto:worldkingwu@gmail.com"><i class="fa fa-envelope-o"></i></a></li>
+  	        
+  			
+  	          <li class="code"><a href="http://worldkingwu.com" target="_blank"><i class="fa  fa-code"></i></a></li>
+  	        
+  	      </ul>
+  	    </section> <!-- End Section Contact -->
+  	    <div class="copyright">
+  	      <p>2018 &copy; Rudder</p>
+  	    </div>
+  	  </footer> <!-- End Footer -->
+  	</aside> <!-- End Sidebar -->
+
+    
+    
+    <div class="wrap-content">
+      <header class="header-page">
+        <h1 class="page-title">PHP常用函数</h1>
+        <div class="page-date"><span>2018, Jan 12&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
+      </header>
+      <ul>
+  <li>
+    <p><code class="highlighter-rouge">exit()</code> 输出一条消息，并退出当前脚本（终止程序继续向下执行）；</p>
+  </li>
+  <li>
+    <table>
+      <tbody>
+        <tr>
+          <td><code class="highlighter-rouge">$_GET</code></td>
+          <td> </td>
+          <td><code class="highlighter-rouge">$_POST</code> 用来接收数据；它们都是一个数组 <code class="highlighter-rouge">$_GET['key']</code></td>
+        </tr>
+      </tbody>
+    </table>
+  </li>
+  <li>在前端发送FORM表单数据时，一定要设置input的name属性,后端才可以正常接收</li>
+</ul>
+
+<h4 id="php-echo-和-print--print_r--var_dump-语句">PHP <code class="highlighter-rouge">echo</code> 和 <code class="highlighter-rouge">print()</code> 、 <code class="highlighter-rouge">print_r()</code> 、 <code class="highlighter-rouge">var_dump()</code> 语句</h4>
+<ul>
+  <li>
+    <p><code class="highlighter-rouge">echo</code>      可以一次输出多个值，多个值之间用逗号分隔。echo是语言结构(language construct)，而并不是真正的函数，因此不能作为表达式的一部分使用。</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">Print()</code>    函数print()打印一个值（它的参数），如果字符串成功显示则返回true，否则返回false。</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">Print_r()</code>  可以把字符串和数字简单地打印出来，而数组则以括起来的键和值得列表形式显示，并以Array开头。但print_r()输出布尔值和NULL的结果没有意义，因为都是打印”\n”。因此用var_dump()函数更适合调试。</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">Print()</code>只能打印出简单类型变量的值(如int,string)
+print_r()可以打印出复杂类型变量的值(如数组,对象)</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">var_dump()</code> 判断一个变量的类型与长度,并输出变量的数值,如果变量有值输的是变量的值并回返数据类型。此函数显示关于一个或多个表达式的结构信息，包括表达式的类型与值。数组将递归展开值，通过缩进显示其结构。</p>
+  </li>
+</ul>
+
+<p><strong>提示</strong>：<code class="highlighter-rouge">echo</code> 输出的速度比 <code class="highlighter-rouge">print()</code>/ <code class="highlighter-rouge">print_r()</code>/ <code class="highlighter-rouge">var_dump()</code>快， <code class="highlighter-rouge">echo</code> 没有返回值</p>
+
+<p><code class="highlighter-rouge">echo</code> 是一个语言结构，使用的时候可以不用加括号，也可以加上括号： <code class="highlighter-rouge">echo</code> 或 <code class="highlighter-rouge">echo()</code></p>
+
+<h3 id="数学函数">数学函数</h3>
+
+<ul>
+  <li><code class="highlighter-rouge">abs()</code> 取绝对值</li>
+</ul>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">echo</span> <span class="nb">abs</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">);</span> <span class="c1">// 1
+</span></code></pre></div></div>
+
+<ul>
+  <li><code class="highlighter-rouge">ceil()</code> 向上取整</li>
+</ul>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">echo</span> <span class="nb">ceil</span><span class="p">(</span><span class="mf">1.01</span><span class="p">);</span> <span class="c1">// 2
+</span></code></pre></div></div>
+
+<ul>
+  <li><code class="highlighter-rouge">floor()</code> 向下取整
+    <div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">echo</span> <span class="nb">floor</span><span class="p">(</span><span class="mf">1.01</span><span class="p">);</span> <span class="c1">// 1
+</span></code></pre></div>    </div>
+  </li>
+  <li><code class="highlighter-rouge">round()</code> 四舍五入</li>
+</ul>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">echo</span> <span class="nb">round</span><span class="p">(</span><span class="mf">2.4449</span><span class="p">);</span> <span class="c1">// 2
+</span></code></pre></div></div>
+
+<ul>
+  <li><code class="highlighter-rouge">pow</code> 返回x的n次方(接受负值与小数)</li>
+</ul>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">echo</span> <span class="nb">pow</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">);</span> <span class="c1">// (x,y) 8
+</span></code></pre></div></div>
+
+<ul>
+  <li><code class="highlighter-rouge">max</code> 求最大值
+    <div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">echo</span> <span class="nb">max</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">);</span> <span class="c1">//6
+</span></code></pre></div>    </div>
+  </li>
+  <li><code class="highlighter-rouge">min</code> 求最小值
+    <div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">echo</span> <span class="nb">min</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">);</span> <span class="c1">//1
+</span></code></pre></div>    </div>
+  </li>
+  <li><code class="highlighter-rouge">rand()</code> 取随机数</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>echo rand(1,10);//(start,end)
+echo mt_rand(1,10);//升级版，效率提高四倍，只支持新版php
+</code></pre></div></div>
+<ul>
+  <li><code class="highlighter-rouge">md5()</code> md5加密</li>
+</ul>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">echo</span> <span class="nb">md5</span><span class="p">(</span><span class="mi">123</span><span class="p">)</span> <span class="c1">//32位md5码
+</span></code></pre></div></div>
+
+<ul>
+  <li><code class="highlighter-rouge">pi()</code> 圆周率</li>
+</ul>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">echo</span> <span class="nb">pi</span><span class="p">(</span><span class="mi">3</span><span class="p">);</span> <span class="c1">//
+</span></code></pre></div></div>
+
+<h3 id="字符串函数">字符串函数</h3>
+<ul>
+  <li><code class="highlighter-rouge">strlen()</code> 返回字符串的长度</li>
+</ul>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$str</span> <span class="o">=</span> <span class="s1">'he llo'</span><span class="p">;</span>
+<span class="k">echo</span> <span class="nb">strlen</span><span class="p">(</span><span class="nv">$str</span><span class="p">);</span> <span class="c1">//6 空格算一个字符
+</span><span class="nv">$str1</span> <span class="o">=</span> <span class="s1">'北京'</span><span class="p">;</span>
+<span class="k">echo</span> <span class="nb">strlen</span><span class="p">(</span><span class="nv">$str1</span><span class="p">);</span> <span class="c1">//6 中文一个字代表三个长度
+</span></code></pre></div></div>
+
+<ul>
+  <li><code class="highlighter-rouge">mb_strlen()</code> 返回字符串长度（中文支持）</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$str1 = '北京';
+echo strlen($str1); //2
+</code></pre></div></div>
+
+<ul>
+  <li><code class="highlighter-rouge">trim()</code> 去除字符串两边的空格</li>
+</ul>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$str</span> <span class="o">=</span> <span class="s1">'   hello   '</span><span class="p">;</span>
+<span class="k">echo</span> <span class="nb">trim</span><span class="p">(</span><span class="nv">$str</span><span class="p">)</span> <span class="c1">//'hello'
+</span><span class="k">echo</span> <span class="nb">ltrim</span><span class="p">(</span><span class="nv">$str</span><span class="p">)</span> <span class="c1">//'hello  ' 加l代表left代表去除左边  
+</span><span class="k">echo</span> <span class="nb">rtrim</span><span class="p">(</span><span class="nv">$str</span><span class="p">)</span> <span class="c1">//'   hello' 加r代表right代表去除左边
+</span></code></pre></div></div>
+
+<ul>
+  <li><code class="highlighter-rouge">substr()</code> 返回字符串的一部分（中文）
+    <ul>
+      <li>若出现乱码更改php.ini配置文件</li>
+    </ul>
+  </li>
+</ul>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$str</span> <span class="o">=</span> <span class="s1">'hello 2018'</span><span class="p">;</span>
+<span class="k">echo</span> <span class="nb">substr</span><span class="p">(</span><span class="nv">$str</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">2</span><span class="p">);</span> <span class="c1">//($str,start,length) 2018
+//截取中文字符串
+</span><span class="nv">$str</span> <span class="o">=</span> <span class="s1">'你好北京'</span><span class="p">;</span>
+<span class="k">echo</span> <span class="nb">substr</span><span class="p">(</span><span class="nv">$str</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">4</span><span class="p">);</span> <span class="c1">//($str,start,length) 北京
+</span></code></pre></div></div>
+
+<ul>
+  <li><code class="highlighter-rouge">str_split</code> 将字符串转换成索引数组</li>
+</ul>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$str</span> <span class="o">=</span> <span class="s1">'hello2018'</span><span class="p">;</span>
+<span class="nb">print_r</span> <span class="p">(</span><span class="nb">str_split</span><span class="p">(</span><span class="nv">$str</span><span class="p">,</span><span class="mi">3</span><span class="p">));</span> <span class="c1">//str_split($str,split_length)
+</span><span class="cm">/*Array
+(
+    [0] =&gt; hel
+    [1] =&gt; lo2
+    [2] =&gt; 018
+    )
+*/</span>
+
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">explode</code> 通过指定的分隔符，把字符串拆成数组</p>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$str</span> <span class="o">=</span> <span class="s1">'hello,2018'</span><span class="p">;</span>
+<span class="nb">print_r</span> <span class="p">(</span><span class="nb">explode</span><span class="p">(</span><span class="s1">','</span><span class="p">,</span><span class="mi">3</span><span class="p">));</span> <span class="c1">//hello2018
+</span></code></pre></div></div>
+
+<ul>
+  <li>
+    <p><code class="highlighter-rouge">str_replace()</code> 替换字符串</p>
+
+    <ul>
+      <li>三个参数 1.要替换的内容 2.替换后的内容 3.要替换的字符串</li>
+    </ul>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">stroupper()</code> 将字符串字母转换成大写</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">strolower()</code> 将字符串字母转换成小写</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">strrpos()</code> 获取一个字符串在另一个字符串最后一次出现的位置（大写敏感）</p>
+
+    <ul>
+      <li>获取文件后缀的方法
+        <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  substr($str,strrpos($str,'.')
+</code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">count ()</code> 返回数组的长度</p>
+  </li>
+  <li><code class="highlighter-rouge">in_array</code> 判断一个值是否在数组中存在 (返回布尔值)
+    <ul>
+      <li>(二维数组判断时不会转变数据类型)</li>
+    </ul>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">array_key_exists()</code> 判断一个键名（key）是否在数组中存在</p>
+  </li>
+  <li><code class="highlighter-rouge">array_keys()</code> 返回数组中所有的键名(key)
+    <ul>
+      <li>返回结果是一个索引数组
+        <div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">];</span>
+<span class="nb">var_dump</span><span class="p">(</span><span class="nb">array_keys</span><span class="p">(</span><span class="nv">$arr</span><span class="p">,</span><span class="s1">'1'</span><span class="p">));</span>
+</code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+  <li><code class="highlighter-rouge">array_keys()</code>
+    <ul>
+      <li>返回数组中所有的键名(key)
+  返回结果是一个索引数组</li>
+      <li>第二个参数是通过值(val)来获取对应的键名(key)
+        <div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">];</span>
+<span class="nb">var_dump</span><span class="p">(</span><span class="nb">array_keys</span><span class="p">(</span><span class="nv">$arr</span><span class="p">,</span><span class="s1">'1'</span><span class="p">));</span>
+<span class="cm">/*
+array(1) {
+[0] =&gt;
+int(0)
+}
+*/</span>
+</code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">array_values()</code> 返回数组中所有的值(val),返回结果是一个<strong>索引数组</strong></p>
+  </li>
+  <li><code class="highlighter-rouge">array_pop($arr2)</code>  (改变数组) 删除数组最后一个元素 ,返回被删除元素的值(val)</li>
+</ul>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]</span>
+<span class="nb">var_dump</span><span class="p">(</span><span class="nb">array_pop</span><span class="p">(</span><span class="nv">$arr</span><span class="p">));</span>
+</code></pre></div></div>
+
+<ul>
+  <li><code class="highlighter-rouge">array_push()</code> (改变原数组) 向<strong>末尾</strong>添加数组
+    <div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">array_push</span><span class="p">(</span><span class="nv">$arr</span><span class="p">,</span><span class="nv">$res</span><span class="p">);</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">array_shift()</code> (改变原数组) 删除数组中第一个元素
+,返回数组中第一个元素的值(val);</p>
+  </li>
+  <li><code class="highlighter-rouge">array_unshift()</code> (改变原数组) 向数组<strong>首部</strong>添加一个元素或多个元素，返回的是被添加的元素的值(val);</li>
+</ul>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">array_unshift</span><span class="p">(</span><span class="nv">$arr</span><span class="p">,</span><span class="s1">'1'</span><span class="p">,</span><span class="s1">'2'</span><span class="p">);</span>
+</code></pre></div></div>
+<ul>
+  <li><code class="highlighter-rouge">array_unique()</code> 对数组进行去重</li>
+</ul>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">];</span>
+<span class="nv">$a</span> <span class="o">=</span> <span class="nb">array_unique</span><span class="p">(</span><span class="nv">$arr</span><span class="p">);</span>
+<span class="nb">print_r</span><span class="p">(</span><span class="nv">$a</span><span class="p">);</span>
+<span class="cm">/*
+Array
+(
+    [0] =&gt; 1
+    [1] =&gt; 2
+    [2] =&gt; 3
+)
+*/</span>
+</code></pre></div></div>
+
+<ul>
+  <li><code class="highlighter-rouge">array_search()</code> 通过数组中的值(val)找到对应的键名(key),返回的是对应键名
+    <div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">];</span>
+<span class="nv">$a</span> <span class="o">=</span> <span class="nb">array_search</span><span class="p">(</span><span class="s1">'2'</span><span class="p">,</span><span class="nv">$arr</span><span class="p">);</span>
+<span class="nb">var_dump</span><span class="p">(</span><span class="nv">$a</span><span class="p">);</span> <span class="c1">//int(1)
+</span></code></pre></div>    </div>
+  </li>
+  <li><code class="highlighter-rouge">array_reverse</code> 对数组进行反转，返回的是反转后的数组</li>
+</ul>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">];</span>
+<span class="nv">$a</span> <span class="o">=</span> <span class="nb">array_reverse</span><span class="p">(</span><span class="nv">$arr</span><span class="p">);</span>
+<span class="nb">var_dump</span><span class="p">(</span><span class="nv">$a</span><span class="p">);</span>
+<span class="cm">/*
+Array
+(
+    [0] =&gt; 3
+    [1] =&gt; 2
+    [2] =&gt; 1
+)
+*/</span>
+</code></pre></div></div>
+
+<ul>
+  <li><code class="highlighter-rouge">sort()</code> 升序排序（不改变下标）</li>
+</ul>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$arr</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">];</span>
+<span class="nv">$a</span> <span class="o">=</span> <span class="nb">sort</span><span class="p">(</span><span class="nv">$arr</span><span class="p">);</span>
+<span class="nb">var_dump</span><span class="p">(</span><span class="nv">$arr</span><span class="p">);</span>
+<span class="cm">/*
+array(5) {
+  [0] =&gt;
+  int(1)
+  [1] =&gt;
+  int(2)
+  [2] =&gt;
+  int(3)
+  [3] =&gt;
+  int(5)
+  [4] =&gt;
+  int(6)
+}
+*/</span>
+</code></pre></div></div>
+
+<ul>
+  <li><code class="highlighter-rouge">asort()</code> 对数组进行正向排序（保持原始对应关系）</li>
+  <li><code class="highlighter-rouge">rsort()</code> 对数组进行反向排序（保持原始对应关系）</li>
+  <li><code class="highlighter-rouge">ksort()</code> 对数组进行正向排序 （通过key）（不保持原始对应关系）</li>
+  <li><code class="highlighter-rouge">krsort()</code> 对数组进行反向排序 （通过key）（不保持原始对应关系）</li>
+</ul>
+
+<h4 id="常用函数验证码">常用函数(验证码)</h4>
+<p><code class="highlighter-rouge">implode</code> 将一维数组转换为字符串</p>
+
+<p><code class="highlighter-rouge">array_merge</code> 合并数组</p>
+
+<p><code class="highlighter-rouge">range</code> 取范围值的</p>
+
+<p><code class="highlighter-rouge">str_shuffle</code> 随机打乱字符串</p>
+
+      <div class="page-footer">
+        <div class="page-share">
+          <a href="https://twitter.com/intent/tweet?text=PHP常用函数&url=http://localhost:4000/php-usue-sql/" title="Share on Twitter" rel="nofollow" target="_blank">Twitter</a>
+          <a href="https://plus.google.com/share?url=http://localhost:4000/php-usue-sql/" title="Share on Google+" rel="nofollow" target="_blank">Google+</a>
+		  <a href="http://service.weibo.com/share/share.php?appkey=/php-usue-sql/&url=http://localhost:4000" title="Share on Facebook" rel="nofollow" target="_blank">Weibo</a>
+        </div>
+
+        <div class="page-tag">
+          
+            <a href="/tags#PHP" class="tag">&#35; PHP</a>
+          
+            <a href="/tags#USUELLES" class="tag">&#35; USUELLES</a>
+          
+            <a href="/tags#SQL" class="tag">&#35; SQL</a>
+          
+        </div>
+      </div>
+      <section class="comment-area">
+  <div class="comment-wrapper">
+    
+    <div id="disqus_thread" class="article-comments"></div>
+    <script>
+      (function() {
+          var d = document, s = d.createElement('script');
+          s.src = '//mr-brown.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+      })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    
+  </div>
+</section> <!-- End Comment Area -->
+
+    </div> <!-- End Wrap Content -->
+	<div>
+		
+	</div>
+  </div> <!-- End Page Content -->
+</article> <!-- End Article Page -->
+
+</div>
+
+<!-- <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script> -->
+<!-- <script src="../_layouts/customs.js"></script> -->
+
+  </div>
+  
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', '', 'auto');
+  ga('send', 'pageview');
+</script> <!-- End Analytics -->
+
+</body>
+</html>

@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>MAC PHP环境配置（Nginx MySQL PHP） - Rudder's Blog</title>
+
+  <!-- Edit site and author settings in `_config.yml` to make the social details your own -->
+
+    <meta content="Rudder's Blog" property="og:site_name">
+  
+    <meta content="MAC PHP环境配置（Nginx MySQL PHP）" property="og:title">
+  
+  
+    <meta content="article" property="og:type">
+  
+  
+    <meta content="PHP" property="og:description">
+  
+  
+    <meta content="http://localhost:4000/php_configuration/" property="og:url">
+  
+  
+    <meta content="2017-11-22T05:00:00+08:00" property="article:published_time">
+    <meta content="http://localhost:4000/about/" property="article:author">
+  
+  
+    <meta content="/img/rudder-wu.png" property="og:image">
+  
+  
+    
+  
+  
+    
+    <meta content="PHP" property="article:tag">
+    
+    <meta content="MAC" property="article:tag">
+    
+    <meta content="MySQL" property="article:tag">
+    
+  
+
+  
+    <meta name="twitter:card" content="PHP">
+  
+    <meta name="twitter:site" content="@">
+    <meta name="twitter:creator" content="@">
+  
+    <meta name="twitter:title" content="MAC PHP环境配置（Nginx MySQL PHP）">
+  
+  
+    <meta name="twitter:url" content="http://localhost:4000/php_configuration/">
+  
+  
+    <meta name="twitter:description" content="PHP">
+  
+  
+    <meta name="twitter:image:src" content="http://localhost:4000/img/rudder-wu.png">
+  
+
+	<meta name="description" content="PHP">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta property="og:image" content="">
+	<!-- <link rel="shortcut icon" href="/assets/img/favicon/favicon.ico" type="image/x-icon"> -->
+	<link rel="shortcut icon" href="/assets/img/favicon/favicon.ico" type="image/x-icon">
+	<link rel="apple-touch-icon" href="/assets/img/favicon/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/assets/img/favicon/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="/assets/img/favicon/apple-touch-icon-114x114.png">
+	<!-- Chrome, Firefox OS and Opera -->
+	<meta name="theme-color" content="#263959">
+	<!-- Windows Phone -->
+	<meta name="msapplication-navbutton-color" content="#263959">
+	<!-- iOS Safari -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="#263959">
+	<!-- Google Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=PT+Serif:400,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="/assets/fonts/font-awesome/css/font-awesome.min.css">
+	<!-- Styles -->
+	<link rel="stylesheet" href="/assets/css/main.css">
+</head>
+
+<body>
+
+  <div class="wrapper">
+    <div class="content-box content-box-clear clearfix">
+  <article class="article-page">
+  <div class="page-content">
+	  
+	  <aside class="sidebar">
+  	  <header>
+  	    <div class="about">
+  	      <div class="cover-author-image">
+  	        <a href="/"><img src="/assets/img/rudder-wu.png" alt="Rudder"></a>
+  	      </div>
+  	      <div class="author-name">Rudder</div>
+  	      <p>临渊羡鱼，不如退而结网</p>
+  	    </div>
+  	  </header> <!-- End Header -->
+  	  <footer>
+  	    <section class="contact">
+  	      <h3 class="contact-title">Contact me</h3>
+  	      <ul>
+  	        
+  	          <li><a href="https://www.weibo.com/5544217447/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" target="_blank"><i class="fa fa-weibo" aria-hidden="true"></i></a></li>
+  	        
+  	        
+  	          <li class="github"><a href="https://github.com/worldkingwu" target="_blank"><i class="fa fa-github"></i></a></li>
+  	        
+  	        
+  	          <li class="email"><a href="mailto:worldkingwu@gmail.com"><i class="fa fa-envelope-o"></i></a></li>
+  	        
+  			
+  	          <li class="code"><a href="http://worldkingwu.com" target="_blank"><i class="fa  fa-code"></i></a></li>
+  	        
+  	      </ul>
+  	    </section> <!-- End Section Contact -->
+  	    <div class="copyright">
+  	      <p>2018 &copy; Rudder</p>
+  	    </div>
+  	  </footer> <!-- End Footer -->
+  	</aside> <!-- End Sidebar -->
+
+    
+    
+    <div class="wrap-content">
+      <header class="header-page">
+        <h1 class="page-title">MAC PHP环境配置（Nginx MySQL PHP）</h1>
+        <div class="page-date"><span>2017, Nov 22&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
+      </header>
+      <h4 id="1-安装brew">1. 安装brew</h4>
+<blockquote>
+  <p>$ /usr/bin/ruby -e “$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)”</p>
+</blockquote>
+
+<h4 id="2安装mysql">2.安装MySQL</h4>
+<blockquote>
+  <p>$ brew install mysql</p>
+</blockquote>
+
+<h5 id="启动mysql">启动MySQL</h5>
+<blockquote>
+  <p>$ brew services start mysql</p>
+</blockquote>
+
+<p>安装完成后为MySQL设置密码
+首先无密码登录，用户名为root</p>
+<blockquote>
+  <p>$ mysql -u root</p>
+</blockquote>
+
+<p>在MySQL中操作</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&gt;update mysql.user set authentication_string="new password" where User='root'；
+&gt;flush privileges；
+&gt;quit
+</code></pre></div></div>
+
+<h4 id="3-安装php">3. 安装PHP</h4>
+
+<blockquote>
+  <p>$ brew install homebrew/php/php70 homebrew/php/php70-mcrypt homebrew/php/php70-gmagick homebrew/php/php70-opcache homebrew/php/php70-xdebug</p>
+</blockquote>
+
+<p>安装的是PHP7.0，完成之后输入</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>export PATH="/usr/local/sbin:$PATH"  
+echo 'export PATH="/usr/local/sbin:$PATH"' &gt;&gt; ~/.bash_profile  
+</code></pre></div></div>
+<h6 id="查询版本号">查询版本号</h6>
+<blockquote>
+  <p>$ php -v</p>
+</blockquote>
+
+<blockquote>
+  <p>$ php-fpm -v</p>
+</blockquote>
+
+<h5 id="启动php-fpm">启动php-fpm</h5>
+
+<blockquote>
+  <p>$ sudo php-fpm</p>
+</blockquote>
+
+<h5 id="结束php-fpm">结束php-fpm</h5>
+
+<blockquote>
+  <p>$ sudo pkill php-fpm</p>
+</blockquote>
+
+<p>注意在终端中启动php-fpm之后未结束前不要关闭窗口，若输入其他命令应该新建窗口，非正常关闭重新启动将显示端口被占用，此时需要修改默认的端口9000为其他端口。修改方法在介绍完Nginx的安装之后在说明，因为其中涉及到Nginx的相关设置。</p>
+
+<h4 id="4-安装nginx">4. 安装Nginx</h4>
+<p>这是<strong>关键步骤</strong></p>
+
+<blockquote>
+  <p>$ brew install –with-http2 nginx</p>
+</blockquote>
+
+<p>打开设置文件</p>
+
+<blockquote>
+  <p>$ vim /usr/local/etc/nginx/nginx.conf</p>
+</blockquote>
+
+<p>根据需要做如下修改</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>server {
+    listen       8080; #默认端口为8080
+    server_name  localhost; #网站地址
+
+    #charset koi8-r;
+
+    #access_log  logs/host.access.log  main;
+
+    #如果想使用80端口，需要给予权限，添加下面两行并参考下一个步骤，不需要则可以跳过
+    ssl_certificate ssl/nginx.crt;
+    ssl_certificate_key ssl/nginx.key;
+
+    location / {
+        root   html; #html为网站根目录，可以自己修改
+        index  index.html index.htm; #添加index.php
+    }
+</code></pre></div></div>
+
+<p>生成密钥给予权限以使用80端口</p>
+
+<blockquote>
+  <p>$ sudo mkdir /usr/local/etc/nginx/ssl/</p>
+</blockquote>
+
+<blockquote>
+  <p>$ sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /usr/local/etc/nginx/ssl/nginx.key -out /usr/local/etc/nginx/ssl/nginx.crt</p>
+</blockquote>
+
+<p>设置Nginx支持php
+在刚才的配置文件中找到以下几行，去掉前面的井号，即使注释内容生效。并做相应修改</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>location ~ \.php$ {
+    root           html; #此处的根目录应与上面的设置的一致
+    fastcgi_pass   127.0.0.1:9000; #此处可以设置php-fpm默认端口
+    fastcgi_index  index.php;
+    fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_name; #此处将/scripts$fastcgi_script_name修改为根目录$fastcgi_script_name
+    include        fastcgi_params; #将此行代码与上一行对调位置
+}
+</code></pre></div></div>
+<p>设置完成</p>
+
+<h5 id="启动nginx">启动Nginx</h5>
+<blockquote>
+  <p>$ sudo nginx</p>
+</blockquote>
+
+<h5 id="结束重载配置文件nginx">结束/重载（配置文件）Nginx</h5>
+
+<blockquote>
+  <p>$ sudo nginx -s stop/reload</p>
+</blockquote>
+
+<h5 id="关于修改php-fpm默认端口的说明">关于修改php-fpm默认端口的说明</h5>
+
+<p>在前面Nginx配置文件注释中已经有提到一处php-fpm默认端口的修改，这是在Nginx中进行设置，接下来只需在php-fpm的配置文件中另外修改即可。文件路径<code class="highlighter-rouge">/usr/local/etc/php/7.0/php-fpm.d/www.conf</code>，在文件中找到<code class="highlighter-rouge">listen = 127.0.0.1:9000</code>进行修改即可。</p>
+
+      <div class="page-footer">
+        <div class="page-share">
+          <a href="https://twitter.com/intent/tweet?text=MAC PHP环境配置（Nginx MySQL PHP）&url=http://localhost:4000/php_configuration/" title="Share on Twitter" rel="nofollow" target="_blank">Twitter</a>
+          <a href="https://plus.google.com/share?url=http://localhost:4000/php_configuration/" title="Share on Google+" rel="nofollow" target="_blank">Google+</a>
+		  <a href="http://service.weibo.com/share/share.php?appkey=/php_configuration/&url=http://localhost:4000" title="Share on Facebook" rel="nofollow" target="_blank">Weibo</a>
+        </div>
+
+        <div class="page-tag">
+          
+            <a href="/tags#PHP" class="tag">&#35; PHP</a>
+          
+            <a href="/tags#MAC" class="tag">&#35; MAC</a>
+          
+            <a href="/tags#MySQL" class="tag">&#35; MySQL</a>
+          
+        </div>
+      </div>
+      <section class="comment-area">
+  <div class="comment-wrapper">
+    
+    <div id="disqus_thread" class="article-comments"></div>
+    <script>
+      (function() {
+          var d = document, s = d.createElement('script');
+          s.src = '//mr-brown.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+      })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    
+  </div>
+</section> <!-- End Comment Area -->
+
+    </div> <!-- End Wrap Content -->
+	<div>
+		
+	</div>
+  </div> <!-- End Page Content -->
+</article> <!-- End Article Page -->
+
+</div>
+
+<!-- <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script> -->
+<!-- <script src="../_layouts/customs.js"></script> -->
+
+  </div>
+  
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', '', 'auto');
+  ga('send', 'pageview');
+</script> <!-- End Analytics -->
+
+</body>
+</html>

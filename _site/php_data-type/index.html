@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>PHP数据类型与基本使用方法 - Rudder's Blog</title>
+
+  <!-- Edit site and author settings in `_config.yml` to make the social details your own -->
+
+    <meta content="Rudder's Blog" property="og:site_name">
+  
+    <meta content="PHP数据类型与基本使用方法" property="og:title">
+  
+  
+    <meta content="article" property="og:type">
+  
+  
+    <meta content="PHP" property="og:description">
+  
+  
+    <meta content="http://localhost:4000/php_data-type/" property="og:url">
+  
+  
+    <meta content="2018-01-12T05:00:00+08:00" property="article:published_time">
+    <meta content="http://localhost:4000/about/" property="article:author">
+  
+  
+    <meta content="/img/rudder-wu.png" property="og:image">
+  
+  
+    
+  
+  
+    
+    <meta content="PHP" property="article:tag">
+    
+    <meta content="DATA" property="article:tag">
+    
+    <meta content="TYPE" property="article:tag">
+    
+  
+
+  
+    <meta name="twitter:card" content="PHP">
+  
+    <meta name="twitter:site" content="@">
+    <meta name="twitter:creator" content="@">
+  
+    <meta name="twitter:title" content="PHP数据类型与基本使用方法">
+  
+  
+    <meta name="twitter:url" content="http://localhost:4000/php_data-type/">
+  
+  
+    <meta name="twitter:description" content="PHP">
+  
+  
+    <meta name="twitter:image:src" content="http://localhost:4000/img/rudder-wu.png">
+  
+
+	<meta name="description" content="PHP">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta property="og:image" content="">
+	<!-- <link rel="shortcut icon" href="/assets/img/favicon/favicon.ico" type="image/x-icon"> -->
+	<link rel="shortcut icon" href="/assets/img/favicon/favicon.ico" type="image/x-icon">
+	<link rel="apple-touch-icon" href="/assets/img/favicon/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/assets/img/favicon/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="/assets/img/favicon/apple-touch-icon-114x114.png">
+	<!-- Chrome, Firefox OS and Opera -->
+	<meta name="theme-color" content="#263959">
+	<!-- Windows Phone -->
+	<meta name="msapplication-navbutton-color" content="#263959">
+	<!-- iOS Safari -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="#263959">
+	<!-- Google Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=PT+Serif:400,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="/assets/fonts/font-awesome/css/font-awesome.min.css">
+	<!-- Styles -->
+	<link rel="stylesheet" href="/assets/css/main.css">
+</head>
+
+<body>
+
+  <div class="wrapper">
+    <div class="content-box content-box-clear clearfix">
+  <article class="article-page">
+  <div class="page-content">
+	  
+	  <aside class="sidebar">
+  	  <header>
+  	    <div class="about">
+  	      <div class="cover-author-image">
+  	        <a href="/"><img src="/assets/img/rudder-wu.png" alt="Rudder"></a>
+  	      </div>
+  	      <div class="author-name">Rudder</div>
+  	      <p>临渊羡鱼，不如退而结网</p>
+  	    </div>
+  	  </header> <!-- End Header -->
+  	  <footer>
+  	    <section class="contact">
+  	      <h3 class="contact-title">Contact me</h3>
+  	      <ul>
+  	        
+  	          <li><a href="https://www.weibo.com/5544217447/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" target="_blank"><i class="fa fa-weibo" aria-hidden="true"></i></a></li>
+  	        
+  	        
+  	          <li class="github"><a href="https://github.com/worldkingwu" target="_blank"><i class="fa fa-github"></i></a></li>
+  	        
+  	        
+  	          <li class="email"><a href="mailto:worldkingwu@gmail.com"><i class="fa fa-envelope-o"></i></a></li>
+  	        
+  			
+  	          <li class="code"><a href="http://worldkingwu.com" target="_blank"><i class="fa  fa-code"></i></a></li>
+  	        
+  	      </ul>
+  	    </section> <!-- End Section Contact -->
+  	    <div class="copyright">
+  	      <p>2018 &copy; Rudder</p>
+  	    </div>
+  	  </footer> <!-- End Footer -->
+  	</aside> <!-- End Sidebar -->
+
+    
+    
+    <div class="wrap-content">
+      <header class="header-page">
+        <h1 class="page-title">PHP数据类型与基本使用方法</h1>
+        <div class="page-date"><span>2018, Jan 12&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
+      </header>
+      <ul>
+  <li>PHP官网
+    <blockquote>
+      <p>www.php.net</p>
+    </blockquote>
+  </li>
+  <li>打印PHP信息（测试）
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>phpinfo();//系统函数
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>php文件理论上可以放在项目的任意位置</p>
+  </li>
+  <li>php文件后缀名是<code class="highlighter-rouge">.php</code></li>
+</ul>
+
+<h3 id="php代码怎么写">php代码怎么写？</h3>
+
+<p>1.php的标记符以<code class="highlighter-rouge">&lt;?php</code>开始，以<code class="highlighter-rouge">?&gt;</code>结束。
+php标记符以外的代码都是html代码</p>
+
+<p>2.php向页面输出内容 用<code class="highlighter-rouge">echo</code>。
+    echo 可以输出数据<strong>基础类型</strong>的数据。</p>
+
+<p>3.尾部的分号’<code class="highlighter-rouge">;</code>‘（指令分隔符）是表示一条语句的结束，同C或Perl一样，需要用分号结束命令</p>
+
+<h3 id="php注释">php注释</h3>
+<ul>
+  <li>单行注释</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>//注释内容
+
+#注释内容
+
+</code></pre></div></div>
+
+<ul>
+  <li>多行注释</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>/*
+*注释内容
+*/
+</code></pre></div></div>
+
+<ul>
+  <li>php可以像页面输出html标签</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>echo '&lt;b&gt; name &lt;/b&gt;'
+</code></pre></div></div>
+
+<h3 id="php变量">php变量</h3>
+<ul>
+  <li>
+    <p>以<code class="highlighter-rouge">$</code>为关键字,<code class="highlighter-rouge">$</code>后面跟着变量名</p>
+  </li>
+  <li>
+    <p>用<code class="highlighter-rouge">=</code>来给变量赋值；</p>
+  </li>
+  <li>
+    <p>变量名要语义化，要有意义，工作中用到‘驼峰命名’；<code class="highlighter-rouge">$userName</code></p>
+  </li>
+  <li>
+    <p>变量名首位必须<strong>以字母或下划线开头</strong></p>
+  </li>
+  <li>
+    <p>主体位数字字母下划线；</p>
+  </li>
+  <li>
+    <p>等号就是赋值过程 ($名) = (值)。</p>
+  </li>
+  <li>
+    <p>php不用声明变量，直接命名赋值即可。也不用定义数据类型；</p>
+  </li>
+</ul>
+
+<h4 id="变量的基础操作">变量的基础操作</h4>
+<ul>
+  <li>取值
+    <ul>
+      <li>任何使用一个变量并需要获取变量值的场合；</li>
+      <li><code class="highlighter-rouge">echo $变量名;</code></li>
+    </ul>
+  </li>
+  <li>赋值
+    <ul>
+      <li>在等号左边出现的时候就是赋值过程</li>
+      <li><code class="highlighter-rouge">$name = 'user';</code></li>
+    </ul>
+  </li>
+  <li>判断 isset
+    <ul>
+      <li>用到系统函数 <code class="highlighter-rouge">isset()</code>;</li>
+      <li><code class="highlighter-rouge">isset()</code>用于判断一个变量是否存在;</li>
+      <li>存在返回<code class="highlighter-rouge">1</code> ， 不存在返回<code class="highlighter-rouge">''</code>(空);</li>
+      <li>官方给出返回布尔值</li>
+    </ul>
+  </li>
+  <li>删除 unset
+    <ul>
+      <li><code class="highlighter-rouge">unset()</code>;</li>
+      <li>断开变量跟其所引用的数据之间的关系</li>
+    </ul>
+  </li>
+</ul>
+
+<h3 id="常量">常量</h3>
+<ul>
+  <li>
+    <p>如果很多地方都会用到同样的数据 那么就合适定义常量；</p>
+
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  define(变量名,'值');
+  define(name,'zhangsan');
+  //输出
+  echo 变量名
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>常量名不用$ 也不用加引号</p>
+  </li>
+  <li>
+    <p>常量的范围是全局的，不去分作用域，可以在脚本的任何地方访问；</p>
+  </li>
+</ul>
+
+<p><strong>注意： 常量值必须是标量类型；</strong></p>
+
+<h3 id="数据类型">数据类型</h3>
+
+<p>php中共<strong>九种</strong>数据类型</p>
+
+<p><code class="highlighter-rouge">var_dump()</code>可以将变量的数据类型一同打印到页面上，可以传多个值</p>
+
+<p>（标量类型，基础类型）</p>
+<ul>
+  <li>布尔类型（true/false）</li>
+  <li>浮点型 float（注意精度）</li>
+  <li>整形 int (number)</li>
+  <li>字符串 string (在引号里的数据)</li>
+</ul>
+
+<p>（复合类型，复杂类型）</p>
+<ul>
+  <li>数组 array()
+    <ul>
+      <li>创建数组
+        <ul>
+          <li>利用<code class="highlighter-rouge">array()</code>关键字或者<code class="highlighter-rouge">[]</code></li>
+        </ul>
+      </li>
+      <li>索引数组
+        <ul>
+          <li>下标从0开始记</li>
+        </ul>
+      </li>
+      <li>关联数组
+        <ul>
+          <li>取值用$数组名[键名]</li>
+          <li>定义键名必须是字符串或数字</li>
+          <li>键值可以是任何数据类型</li>
+        </ul>
+      </li>
+      <li>数组的简单操作
+        <ul>
+          <li>取值（查） ，$arr[下标/键名]</li>
+          <li>赋值（增） ，直接利用下标赋值 $arr[下标/键名] = ‘值’</li>
+          <li>修改 ，直接利用下标赋值修改值内容</li>
+          <li>删除 ，利用系统函数unset($arr[下标/键名])</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>对象</p>
+
+    <div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code>      <span class="c1">//创建对象
+</span>      <span class="k">class</span> <span class="nc">className</span><span class="p">{</span>
+          <span class="k">function</span> <span class="nf">fuName</span><span class="p">(</span><span class="nv">$a</span><span class="p">)</span> <span class="p">{</span>
+              <span class="k">echo</span> <span class="nv">$a</span><span class="p">;</span>
+          <span class="p">}</span>
+      <span class="p">}</span>
+      <span class="c1">//实例化 new
+</span>      <span class="nv">$claName</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">className</span><span class="p">();</span>
+      <span class="c1">//调用对象方法
+</span>      <span class="nv">$claName</span><span class="o">-&gt;</span><span class="na">fuName</span><span class="p">(</span><span class="s1">'name'</span><span class="p">)</span>
+</code></pre></div>    </div>
+    <ul>
+      <li>创建类
+        <ul>
+          <li>利用class关键字 后面跟上类名</li>
+        </ul>
+      </li>
+      <li>实例化对象
+        <ul>
+          <li>利用new关键字();</li>
+        </ul>
+      </li>
+      <li>调用对象方法
+        <ul>
+          <li><code class="highlighter-rouge">$claName-&gt;fuName('name');</code></li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+  <li>回调类型
+    <ul>
+      <li>callback(回调)</li>
+    </ul>
+  </li>
+  <li>特殊类型
+    <ul>
+      <li>null (不区分大小写)
+        <ul>
+          <li>值就一个null</li>
+          <li>在以下情况被认为是null</li>
+          <li>变量被赋值为null</li>
+          <li>尚未被赋值的变量</li>
+          <li>被unset()的变量</li>
+        </ul>
+      </li>
+      <li>资源型
+        <ul>
+          <li>resource （资源）</li>
+        </ul>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<h6 id="单引号与双引号">单引号与双引号</h6>
+<p>单引号<code class="highlighter-rouge">''</code>不会解析变量;</p>
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$a</span> <span class="o">=</span> <span class="s1">'string'</span><span class="p">;</span>
+<span class="nv">$c</span> <span class="o">=</span> <span class="s1">'123$a'</span><span class="p">;</span> <span class="c1">//string(5) "123$a"
+</span></code></pre></div></div>
+<p>双引号<code class="highlighter-rouge">""</code>会解析变量;</p>
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$a</span> <span class="o">=</span> <span class="s1">'string'</span><span class="p">;</span>
+<span class="nv">$c</span> <span class="o">=</span> <span class="s2">"123</span><span class="nv">$a</span><span class="s2">"</span><span class="p">;</span> <span class="c1">//string(9) "123string"
+</span></code></pre></div></div>
+
+<h4 id="数据类型的转换">数据类型的转换</h4>
+<p>在执行某些特定的运算时，php会自动对数据类型进行转换</p>
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$a</span> <span class="o">=</span> <span class="mi">1</span><span class="o">+</span><span class="s1">'string'</span><span class="p">;</span> <span class="c1">//1(int)
+</span><span class="o">---</span>
+<span class="nv">$a</span> <span class="o">=</span> <span class="mi">1</span><span class="o">+</span><span class="s1">'20'</span><span class="p">;</span> <span class="c1">//21(int)
+</span><span class="o">---</span>
+<span class="nv">$a</span> <span class="o">=</span> <span class="mi">1</span><span class="o">+</span><span class="s1">'20string'</span><span class="p">;</span> <span class="c1">//21(int)
+</span><span class="o">---</span>
+<span class="nv">$a</span> <span class="o">=</span> <span class="mi">1</span><span class="o">+</span><span class="s1">'string20'</span><span class="p">;</span> <span class="c1">//1(int)
+</span></code></pre></div></div>
+<p>字符串在与数字<code class="highlighter-rouge">'+'</code>时会将字符串转换为<code class="highlighter-rouge">int</code>类型再运算，有意义的转换为相应的数字，没有意义转换为0；</p>
+
+<p>转换成其他类型</p>
+
+<ul>
+  <li><code class="highlighter-rouge">(int)</code>(integer) - 转换为整形 integer</li>
+  <li><code class="highlighter-rouge">(bool)</code>(boolean) - 转换为布尔类型 boolean</li>
+  <li><code class="highlighter-rouge">(float)</code>(double)/(real) - 转换为浮点型 float</li>
+  <li><code class="highlighter-rouge">(string)</code> - 转换为字符串 string</li>
+  <li><code class="highlighter-rouge">(array)</code> - 转换为数组 array</li>
+  <li><code class="highlighter-rouge">(object)</code> - 转换为对象 object</li>
+  <li><code class="highlighter-rouge">(unset)</code> - 转换为NULL</li>
+</ul>
+
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$num</span> <span class="o">=</span> <span class="s1">'123'</span>
+<span class="p">(</span><span class="nx">string</span><span class="p">)</span> <span class="nv">$num</span>
+</code></pre></div></div>
+
+<p>表达式是任何有值的东西的基石</p>
+
+      <div class="page-footer">
+        <div class="page-share">
+          <a href="https://twitter.com/intent/tweet?text=PHP数据类型与基本使用方法&url=http://localhost:4000/php_data-type/" title="Share on Twitter" rel="nofollow" target="_blank">Twitter</a>
+          <a href="https://plus.google.com/share?url=http://localhost:4000/php_data-type/" title="Share on Google+" rel="nofollow" target="_blank">Google+</a>
+		  <a href="http://service.weibo.com/share/share.php?appkey=/php_data-type/&url=http://localhost:4000" title="Share on Facebook" rel="nofollow" target="_blank">Weibo</a>
+        </div>
+
+        <div class="page-tag">
+          
+            <a href="/tags#PHP" class="tag">&#35; PHP</a>
+          
+            <a href="/tags#DATA" class="tag">&#35; DATA</a>
+          
+            <a href="/tags#TYPE" class="tag">&#35; TYPE</a>
+          
+        </div>
+      </div>
+      <section class="comment-area">
+  <div class="comment-wrapper">
+    
+    <div id="disqus_thread" class="article-comments"></div>
+    <script>
+      (function() {
+          var d = document, s = d.createElement('script');
+          s.src = '//mr-brown.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+      })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    
+  </div>
+</section> <!-- End Comment Area -->
+
+    </div> <!-- End Wrap Content -->
+	<div>
+		
+	</div>
+  </div> <!-- End Page Content -->
+</article> <!-- End Article Page -->
+
+</div>
+
+<!-- <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script> -->
+<!-- <script src="../_layouts/customs.js"></script> -->
+
+  </div>
+  
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', '', 'auto');
+  ga('send', 'pageview');
+</script> <!-- End Analytics -->
+
+</body>
+</html>

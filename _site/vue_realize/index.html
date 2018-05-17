@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Vue是什么？ - Rudder's Blog</title>
+
+  <!-- Edit site and author settings in `_config.yml` to make the social details your own -->
+
+    <meta content="Rudder's Blog" property="og:site_name">
+  
+    <meta content="Vue是什么？" property="og:title">
+  
+  
+    <meta content="article" property="og:type">
+  
+  
+    <meta content="Vue" property="og:description">
+  
+  
+    <meta content="http://localhost:4000/vue_realize/" property="og:url">
+  
+  
+    <meta content="2017-08-02T05:00:00+08:00" property="article:published_time">
+    <meta content="http://localhost:4000/about/" property="article:author">
+  
+  
+    <meta content="http://localhost:4000/assets/img/vue-logo.jpg" property="og:image">
+  
+  
+    
+  
+  
+    
+    <meta content="JS" property="article:tag">
+    
+    <meta content="VUE" property="article:tag">
+    
+  
+
+  
+    <meta name="twitter:card" content="Vue">
+  
+    <meta name="twitter:site" content="@">
+    <meta name="twitter:creator" content="@">
+  
+    <meta name="twitter:title" content="Vue是什么？">
+  
+  
+    <meta name="twitter:url" content="http://localhost:4000/vue_realize/">
+  
+  
+    <meta name="twitter:description" content="Vue">
+  
+  
+    <meta name="twitter:image:src" content="http://localhost:4000/img/rudder-wu.png">
+  
+
+	<meta name="description" content="Vue">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta property="og:image" content="">
+	<!-- <link rel="shortcut icon" href="/assets/img/favicon/favicon.ico" type="image/x-icon"> -->
+	<link rel="shortcut icon" href="/assets/img/favicon/favicon.ico" type="image/x-icon">
+	<link rel="apple-touch-icon" href="/assets/img/favicon/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/assets/img/favicon/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="/assets/img/favicon/apple-touch-icon-114x114.png">
+	<!-- Chrome, Firefox OS and Opera -->
+	<meta name="theme-color" content="#263959">
+	<!-- Windows Phone -->
+	<meta name="msapplication-navbutton-color" content="#263959">
+	<!-- iOS Safari -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="#263959">
+	<!-- Google Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=PT+Serif:400,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="/assets/fonts/font-awesome/css/font-awesome.min.css">
+	<!-- Styles -->
+	<link rel="stylesheet" href="/assets/css/main.css">
+</head>
+
+<body>
+
+  <div class="wrapper">
+    <div class="content-box content-box-clear clearfix">
+  <article class="article-page">
+  <div class="page-content">
+	  
+	  <aside class="sidebar">
+  	  <header>
+  	    <div class="about">
+  	      <div class="cover-author-image">
+  	        <a href="/"><img src="/assets/img/rudder-wu.png" alt="Rudder"></a>
+  	      </div>
+  	      <div class="author-name">Rudder</div>
+  	      <p>临渊羡鱼，不如退而结网</p>
+  	    </div>
+  	  </header> <!-- End Header -->
+  	  <footer>
+  	    <section class="contact">
+  	      <h3 class="contact-title">Contact me</h3>
+  	      <ul>
+  	        
+  	          <li><a href="https://www.weibo.com/5544217447/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" target="_blank"><i class="fa fa-weibo" aria-hidden="true"></i></a></li>
+  	        
+  	        
+  	          <li class="github"><a href="https://github.com/worldkingwu" target="_blank"><i class="fa fa-github"></i></a></li>
+  	        
+  	        
+  	          <li class="email"><a href="mailto:worldkingwu@gmail.com"><i class="fa fa-envelope-o"></i></a></li>
+  	        
+  			
+  	          <li class="code"><a href="http://worldkingwu.com" target="_blank"><i class="fa  fa-code"></i></a></li>
+  	        
+  	      </ul>
+  	    </section> <!-- End Section Contact -->
+  	    <div class="copyright">
+  	      <p>2018 &copy; Rudder</p>
+  	    </div>
+  	  </footer> <!-- End Footer -->
+  	</aside> <!-- End Sidebar -->
+
+    
+    <!-- <div class="page-cover-image">
+      <img class="page-image" src=/assets/img/vue-logo.jpg alt="Vue是什么？">
+    </div>  -->
+	<!-- End Page Cover Image -->
+    
+    <div class="wrap-content">
+      <header class="header-page">
+        <h1 class="page-title">Vue是什么？</h1>
+        <div class="page-date"><span>2017, Aug 02&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
+      </header>
+      <p><strong>框架模式：</strong></p>
+<blockquote>
+  <p>框架模式是管理和组织代码的学问</p>
+</blockquote>
+
+<p>(1)MVC</p>
+<blockquote>
+  <p>是最常见的软件架构之一，业界广泛应用；
+  MVC分为三部分，view(用户界面) Contoller(业务逻辑) Model(数据保存);</p>
+</blockquote>
+
+<blockquote>
+  <p>说明：view传送指令到controller
+        controller完成业务逻辑，model改变状态
+        Model将新的数据发送到view，用户得到反馈；</p>
+</blockquote>
+
+<blockquote>
+  <p>特点:所有的通信都是单向的</p>
+</blockquote>
+
+<blockquote>
+  <p>互动模式：
+  接受用户指令时，MVC分为两部分，一种是通过View接受指令，传递给controller:另一种是直接通过controller接受指令;</p>
+</blockquote>
+
+<p>(2)MVP</p>
+<blockquote>
+  <p>MVP模式将Controller改名为Presenter,同时改变了通信方向；</p>
+</blockquote>
+
+<blockquote>
+  <p>1、各部分之间的通信，都是双向的；</p>
+</blockquote>
+
+<blockquote>
+  <p>2、View和Model不发生联系，都是通过presenter传递</p>
+</blockquote>
+
+<blockquote>
+  <p>3、view非常薄，不部署任何业务逻辑，没有任何的主动性，而presenter则是所有的逻辑部署都在哪里</p>
+</blockquote>
+
+<p>(3)MVVM</p>
+<blockquote>
+  <p>MVVM模式将presenter改名为ViewModel,基本上与MVP模式完全一致。
+  view ViewModel Model
+  唯一的区别是，它采用的是双向绑定，view的变化，自动反映在viewModel；</p>
+</blockquote>
+
+<p>一、了解Vue
+<strong>Vue.js 是什么？</strong></p>
+
+<blockquote>
+  <p>Vue.js（读音 /vjuː/, 类似于 view） 是一套构建用户界面的渐进式框架。与其他重量级框架不同的是，Vue 采用自底向上增量开发的设计。Vue 的核心库只关注视图层，并且非常容易学习，非常容易与其它库或已有项目整合。另一方面，Vue 完全有能力驱动采用单文件组件和 Vue 生态系统支持的库开发的复杂单页应用。
+Vue.js 的目标是通过尽可能简单的 API 实现响应的数据绑定和组合的视图组件。</p>
+</blockquote>
+
+<blockquote>
+  <p>官网 http://cn.vuejs.org/</p>
+</blockquote>
+
+<blockquote>
+  <p>Vue.js CDN：https://unpkg.com/vue/dist/vue.js</p>
+</blockquote>
+
+<blockquote>
+  <p>NPM版本要高于3.0 查看版本:npm -v</p>
+
+  <p>低的话要升级:  cnpm install npm -g</p>
+</blockquote>
+
+<p><strong>项目构建步骤</strong></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>npm install --global vue-cli
+vue init webpack ***
+cd **
+npm install
+npm start
+</code></pre></div></div>
+
+<p>代码初识</p>
+
+<blockquote>
+  <p>Hello Vue（通过元素选择器绑定数据）</p>
+</blockquote>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;div id="app"&gt;
+	
+&lt;/div&gt;
+
+var app = new Vue({
+	el: '#app',
+	data: {
+		message: 'Hello Vue!'
+	},
+	methods:{
+		showMsg:function(){
+		alert(this.message)
+	}
+})
+</code></pre></div></div>
+<p>学习完其他框架之后再和其他框架作比较???</p>
+
+<hr />
+
+<p>基本用法：</p>
+
+<blockquote>
+  <p>1、v-xxx</p>
+</blockquote>
+
+<blockquote>
+  <p>2、属性绑定v-bind  缩写  ‘:’</p>
+</blockquote>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;a v-bind:href="url"&gt;&lt;/a&gt;
+&lt;!-- 缩写 --&gt;
+&lt;a :href="url"&gt;&lt;/a&gt;
+</code></pre></div></div>
+
+<blockquote>
+  <p>3、事件绑定 v-on  缩写 ‘@’</p>
+  <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>&lt;a v-on:click="doSomething"&gt;&lt;/a&gt;
+&lt;!-- 缩写 --&gt;
+&lt;a @click="doSomething"&gt;&lt;/a&gt;
+</code></pre></div>  </div>
+</blockquote>
+
+<p>1、模板表达式</p>
+
+<div class="language-vue highlighter-rouge"><div class="highlight"><pre class="highlight"><code>//流控制也不会生效，请使用三元表达式和逻辑表达式
+
+	{%if user.isAdmin%}
+	true
+	{% else %}
+	false
+	{% endif %}
+
+</code></pre></div></div>
+
+<p>2、html内容 <code class="highlighter-rouge">v-html }</code></p>
+
+<p>动态渲染的任意 HTML 可能会非常危险，因为它很容易导致 XSS 攻击。
+请只对可信内容使用 HTML 插值，绝不要对用户提供的内容插值。</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>eg:
+   htmlstr:"&lt;a href='todolist.html'&gt;&lt;/a&gt;"
+</code></pre></div></div>
+
+<p><code class="highlighter-rouge">v-cloak</code>，在元素的最外面加<code class="highlighter-rouge">v-cloak</code>属性，另外手动的在style中加<code class="highlighter-rouge">[v-cloak]{dispaly:none}</code>;表示一开始元素信息全部隐藏，等数据解析出来才会显示</p>
+
+<ul>
+  <li>
+    <p><code class="highlighter-rouge">v-html</code> 绑定标签</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">v-text</code> 绑定文本</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">v-pre</code>  不当做数据去解析</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">v-if</code> 对DOM节点的添加和移除(不需要切换的时候用v-if,切换的时候消耗性能)</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">v-show</code>, DOM的显示和隐藏(频繁的切换，初次渲染的时候消耗性能)</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">v-model</code> 数据双向绑定</p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">v-for="(item,index) in arr" :key='index'</code></p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">:style='obj'||'{}'</code></p>
+  </li>
+  <li>
+    <p><code class="highlighter-rouge">:class="{'box-bg':true}"</code>注意JS中不识别-，要记得加引号</p>
+  </li>
+</ul>
+
+<p><strong>过滤器：</strong></p>
+
+<p>全局定义</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>Vue.filter('reverseMsg',function(value){
+	return value.split('').reverse().join('');
+});
+</code></pre></div></div>
+<p>局部定义:</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>new Vue({   
+	 el:"#box",
+	 data:{
+	 	message:"msg"
+	 },
+	 filters:{
+		//局部定义        
+		reverseMsg:function(value){
+		   return value.split('').reverse().join('')      
+		}
+	  }
+})
+</code></pre></div></div>
+
+<p>计算属性：computed</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>new Vue({    
+	el:"#box",   
+ 	data:{     
+   		message:"msg"    
+   	},
+    computed: {
+		fullName: function () {
+    		return this.firstName + ' ' + this.lastName
+		}
+	}
+})
+</code></pre></div></div>
+
+<p>watch（一般执行异步操作或开销较大的操作）:</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>new Vue({   
+	el:"#box",   
+  	data:{
+     	message:"msg"    
+  	},   
+  	watch: {
+		firstName: function (val) {
+			this.fullName = val + ' ' + this.lastName
+		},
+		lastName: function (val) {
+			this.fullName = this.firstName + ' ' + val
+		}
+ 	}
+})
+</code></pre></div></div>
+<p>vue-resource（支持 jsonp）</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">cdn</span><span class="p">:</span><span class="o">&lt;</span><span class="nx">script</span> <span class="nx">src</span><span class="o">=</span><span class="s2">"https://cdn.jsdelivr.net/vue.resource/1.3.1/vue-resource.min.js"</span><span class="o">&gt;&lt;</span><span class="sr">/script</span><span class="err">&gt;
+</span><span class="c1">// 基于全局Vue对象使用http</span>
+<span class="nx">Vue</span><span class="p">.</span><span class="nx">http</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="s1">'/someUrl'</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="nx">successCallback</span><span class="p">,</span> <span class="nx">errorCallback</span><span class="p">);</span>
+<span class="nx">Vue</span><span class="p">.</span><span class="nx">http</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">'/someUrl'</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="nx">successCallback</span><span class="p">,</span> <span class="nx">errorCallback</span><span class="p">);</span>
+</code></pre></div></div>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="err">在一个</span><span class="nx">Vue</span><span class="err">实例内使用</span><span class="nx">$http</span>
+<span class="k">this</span><span class="p">.</span><span class="nx">$http</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="s1">'/someUrl'</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="nx">successCallback</span><span class="p">,</span> <span class="nx">errorCallback</span><span class="p">);</span>
+<span class="k">this</span><span class="p">.</span><span class="nx">$http</span><span class="p">.</span><span class="nx">post</span><span class="p">(</span><span class="s1">'/someUrl'</span><span class="p">).</span><span class="nx">then</span><span class="p">(</span><span class="nx">successCallback</span><span class="p">,</span> <span class="nx">errorCallback</span><span class="p">);</span>
+</code></pre></div></div>
+
+<p>axios</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">CDN</span><span class="p">:</span><span class="o">&lt;</span><span class="nx">script</span> <span class="nx">src</span><span class="o">=</span><span class="s2">"https://unpkg.com/axios/dist/axios.min.js"</span><span class="o">&gt;&lt;</span><span class="sr">/script</span><span class="err">&gt;
+</span></code></pre></div></div>
+
+<p>1、事件绑定</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="nx">v</span><span class="o">-</span><span class="nx">on</span><span class="p">:</span><span class="nx">eventname</span>
+    <span class="c1">//简写</span>
+    <span class="p">@</span><span class="nd">eventname</span>
+</code></pre></div></div>
+
+<p>2、阻止冒泡</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">e</span><span class="p">.</span><span class="nx">stopPropagation</span><span class="p">?</span><span class="nx">e</span><span class="p">.</span><span class="nx">stopPropagation</span><span class="p">():</span><span class="nx">e</span><span class="p">.</span><span class="nx">cancelBubble</span><span class="o">=</span><span class="kc">true</span><span class="p">;</span>
+    <span class="o">&lt;</span><span class="nx">div</span> <span class="nx">id</span><span class="o">=</span><span class="s1">'inner'</span> <span class="p">@</span><span class="nd">click</span><span class="p">.</span><span class="nx">stop</span><span class="o">=</span><span class="s1">'inner'</span><span class="o">&gt;&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>
+    <span class="c1">//阻止默认事件</span>
+    <span class="nx">e</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">?</span><span class="nx">e</span><span class="p">.</span><span class="nx">preventDefault</span><span class="p">():</span><span class="nx">e</span><span class="p">.</span><span class="nx">returnValue</span><span class="o">=</span><span class="kc">false</span><span class="p">;</span>
+    <span class="o">&lt;</span><span class="nx">a</span> <span class="nx">href</span><span class="o">=</span><span class="s2">""</span> <span class="p">@</span><span class="nd">click</span><span class="p">.</span><span class="nx">prevent</span><span class="o">=</span><span class="s1">'aa'</span><span class="o">&gt;</span> <span class="err">链接</span><span class="o">&lt;</span><span class="sr">/a</span><span class="err">&gt;
+</span></code></pre></div></div>
+
+<p>3、键盘事件</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="nx">ev</span><span class="p">.</span><span class="nx">keyCode</span>
+</code></pre></div></div>
+
+<p>4、通过键值绑定事件</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code>    <span class="p">@</span><span class="nd">keyup</span><span class="p">.</span><span class="mi">13</span><span class="o">=</span><span class="s2">"show()"</span>
+    <span class="p">@</span><span class="nd">keyup</span><span class="p">.</span><span class="nx">enter</span><span class="o">=</span><span class="s2">"show()"</span>
+</code></pre></div></div>
+
+<p>事件修饰符:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">.</span><span class="nx">stop</span>  <span class="err">阻止事件冒泡</span>
+<span class="p">.</span><span class="nx">prevent</span> <span class="err">阻止默认事件</span>
+<span class="p">.</span><span class="nx">capture</span> <span class="err">事件捕获模式</span>
+<span class="p">.</span><span class="nb">self</span>  <span class="err">只触发我本身</span><span class="p">(</span><span class="err">不包含子元素</span><span class="p">)</span><span class="nx">__________</span>
+</code></pre></div></div>
+
+<p>该元素本身（而不是子元素）触发时触发回调
+按键修饰符:</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="p">.</span><span class="nx">enter</span>
+<span class="p">.</span><span class="nx">tab</span>
+<span class="p">.</span><span class="k">delete</span> <span class="p">(</span><span class="err">捕获</span> <span class="s2">"删除"</span> <span class="err">和</span> <span class="s2">"退格"</span> <span class="err">键</span><span class="p">)</span>
+<span class="p">.</span><span class="nx">esc</span>
+<span class="p">.</span><span class="nx">space</span>
+<span class="p">.</span><span class="nx">up</span>   <span class="mi">38</span>
+<span class="p">.</span><span class="nx">down</span> <span class="mi">40</span>
+<span class="p">.</span><span class="nx">left</span> <span class="mi">37</span>
+<span class="p">.</span><span class="nx">right</span> <span class="mi">39</span>
+<span class="p">.</span><span class="nx">ctrl</span>
+<span class="p">.</span><span class="nx">alt</span>
+<span class="p">.</span><span class="nx">shift</span>
+</code></pre></div></div>
+
+<p>生命周期,
+Vue实例是一个完整的生命周期，即从开始创建，初始化数据，编译模板，挂载DOM,渲染更新，渲染卸载的过程，成为生命周期.
+创建</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">beforeCreate</span>
+<span class="nx">created</span>
+</code></pre></div></div>
+
+<p>添加</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">beforeMount</span>
+<span class="nx">mounted</span> <span class="err">（在这里进行数据请求）</span>
+</code></pre></div></div>
+
+<p>更新</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">beforeUpdate</span>
+<span class="nx">updated</span>
+</code></pre></div></div>
+
+<p>激活（动态切换的时候会触发）</p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">activated</span>
+<span class="nx">deactivated</span>
+</code></pre></div></div>
+
+<p>销毁  <code class="highlighter-rouge">（主动销毁this.$destroy()）</code></p>
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">beforeDestroy</span>   
+<span class="nx">destroyed</span>
+</code></pre></div></div>
+<p><strong>组件与传递数据</strong></p>
+
+<p>1、组件的定义与注册</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="c1">//1.通过Vue.extend定义组件</span>
+	    <span class="kd">var</span> <span class="nx">Header</span><span class="o">=</span><span class="nx">Vue</span><span class="p">.</span><span class="nx">extend</span><span class="p">({</span>
+			<span class="na">template</span><span class="p">:</span><span class="s2">`&lt;h1&gt;我是header标签&lt;/h1&gt;`</span>
+		<span class="p">});</span>
+	<span class="c1">//2.注册组件</span>
+	    <span class="nx">Vue</span><span class="p">.</span><span class="nx">component</span><span class="p">(</span><span class="err">‘</span><span class="nx">v</span><span class="o">-</span><span class="nx">header</span><span class="err">’</span><span class="p">,</span><span class="nx">Header</span><span class="p">);</span> <span class="c1">//组件名不能和html标签名一样</span>
+	<span class="c1">//3.使用组件</span>
+	    <span class="o">&lt;</span><span class="nx">v</span><span class="o">-</span><span class="nx">header</span><span class="o">&gt;&lt;</span><span class="sr">/v-header</span><span class="err">&gt;
+</span></code></pre></div></div>
+
+<p>2、组件的定义和注册2js</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	//1.直接定义组件
+	    var Header={
+	        template:‘&lt;h1&gt;这是一个头部组件&lt;/h1&gt;’        
+	    }
+	//2.注册组件
+	var vm=new Vue({
+	    el:‘#box’,
+	    data:{
+	        name:‘zhangsan’
+	    },
+	    components:{
+	        ‘v-header’:Header   //在vue内部注册组件
+    	}
+    });
+</code></pre></div></div>
+
+<p>3、组件的数据和方法</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code>   <span class="err">组件可以自己定义方法和数据（数据必须通过方法返回）</span>
+
+   <span class="kd">var</span> <span class="nx">Header</span><span class="o">=</span><span class="p">{</span>
+       <span class="na">template</span><span class="p">:</span><span class="s1">'&lt;h1 @click="change()"&gt;&lt;/h1&gt;'</span><span class="p">,</span>
+       <span class="na">data</span><span class="p">:</span><span class="kd">function</span><span class="p">(){</span>   <span class="cm">/*组件里面定义数据的方式*/</span>
+            <span class="k">return</span> <span class="p">{</span>
+               <span class="na">name</span><span class="p">:</span><span class="s1">'头部组件'</span><span class="p">,</span>
+             <span class="p">}</span>
+       <span class="p">},</span>
+       <span class="na">methods</span><span class="p">:{</span>
+           <span class="nx">hange</span><span class="p">(){</span>
+             <span class="k">this</span><span class="p">.</span><span class="nx">name</span><span class="o">=</span><span class="s1">'头部组件变'</span><span class="p">;</span>
+             <span class="nx">alert</span><span class="p">(</span><span class="s1">'this is a  Header component  run'</span><span class="p">);</span>
+           <span class="p">}</span>
+       <span class="p">}</span>
+   <span class="p">};</span>
+</code></pre></div></div>
+
+<p>4、组件的模板</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="c1">//1、通过script创建</span>
+	<span class="o">&lt;</span><span class="nx">script</span> <span class="nx">type</span><span class="o">=</span><span class="s2">"x-template"</span> <span class="nx">id</span><span class="o">=</span><span class="s2">"header"</span><span class="o">&gt;</span>
+	    <span class="o">&lt;</span><span class="nx">div</span> <span class="kd">class</span><span class="o">=</span><span class="s2">"header"</span><span class="o">&gt;</span>
+	        <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;&lt;</span><span class="sr">/p</span><span class="err">&gt;
+</span>	        <span class="o">&lt;</span><span class="nx">button</span> <span class="p">@</span><span class="nd">click</span><span class="o">=</span><span class="s2">"run()"</span><span class="o">&gt;</span><span class="err">这是一个按钮</span><span class="o">&lt;</span><span class="sr">/button</span><span class="err">&gt;
+</span>	    <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>	<span class="o">&lt;</span><span class="sr">/script</span><span class="err">&gt;
+</span>	<span class="c1">//2、或者通过template标签创建</span>
+	<span class="o">&lt;</span><span class="nx">template</span> <span class="nx">id</span><span class="o">=</span><span class="s2">" header "</span><span class="o">&gt;</span>
+	    <span class="o">&lt;</span><span class="nx">div</span> <span class="kd">class</span><span class="o">=</span><span class="s2">"header"</span><span class="o">&gt;***</span><span class="err">这里需要有一个根元素</span>
+	        <span class="o">&lt;</span><span class="nx">p</span><span class="o">&gt;&lt;</span><span class="sr">/p</span><span class="err">&gt;
+</span>	        <span class="o">&lt;</span><span class="nx">button</span> <span class="p">@</span><span class="nd">click</span><span class="o">=</span><span class="s2">"run()"</span><span class="o">&gt;</span><span class="err">这是一个按钮</span><span class="o">&lt;</span><span class="sr">/button</span><span class="err">&gt;
+</span>	    <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>	<span class="o">&lt;</span><span class="sr">/template</span><span class="err">&gt;
+</span>	<span class="c1">//3、使用</span>
+	<span class="kd">var</span> <span class="nx">Header</span><span class="o">=</span><span class="p">{</span><span class="na">template</span><span class="p">:</span><span class="s1">'#header'</span><span class="p">}</span>
+</code></pre></div></div>
+
+<p>5、组件标签的内容分发</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code>	<span class="c1">//1、通过&lt;slot&gt;&lt;/slot&gt;插入组件标签嵌套的内容</span>
+	<span class="o">&lt;</span><span class="nx">div</span> <span class="nx">id</span><span class="o">=</span><span class="s2">"box"</span><span class="o">&gt;</span>
+	   <span class="o">&lt;</span><span class="nx">v</span><span class="o">-</span><span class="nx">header</span><span class="o">&gt;&lt;</span><span class="nx">span</span> <span class="nx">slot</span> <span class="o">=</span><span class="s1">'text'</span><span class="o">&gt;&lt;</span><span class="sr">/span&gt;&lt;/</span><span class="nx">v</span><span class="o">-</span><span class="nx">header</span><span class="o">&gt;</span>
+	<span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>	<span class="o">&lt;</span><span class="nx">template</span> <span class="nx">id</span><span class="o">=</span><span class="s2">"aaa"</span><span class="o">&gt;</span>
+	    <span class="o">&lt;</span><span class="nx">div</span><span class="o">&gt;</span>
+	        <span class="o">&lt;</span><span class="nx">slot</span>  <span class="nx">name</span><span class="o">=</span><span class="err">”</span><span class="nx">text</span><span class="err">”</span><span class="o">&gt;</span>
+	            <span class="c1">//这是默认情况下的内容</span>
+	        <span class="o">&lt;</span><span class="sr">/slot</span><span class="err">&gt;
+</span>	    <span class="o">&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>	<span class="o">&lt;</span><span class="sr">/template</span><span class="err">&gt;
+</span></code></pre></div></div>
+
+<p>组件通信</p>
+
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="c1">//1、父组件控制子组件通信（props）</span>
+	<span class="c1">//1、调用组件</span>
+	       <span class="o">&lt;</span><span class="nx">v</span><span class="o">-</span><span class="nx">content</span> <span class="o">&gt;</span>
+	         	<span class="o">&lt;</span><span class="nx">v</span><span class="o">-</span><span class="nx">list</span> <span class="p">:</span><span class="nx">list</span><span class="o">-</span><span class="nx">fata</span><span class="o">=</span><span class="s2">"listData"</span><span class="o">&gt;&lt;</span><span class="sr">/v-list</span><span class="err">&gt;
+</span>	       <span class="o">&lt;</span><span class="sr">/v-content</span><span class="err">&gt;
+</span>	<span class="c1">//2、在content组件内部通过props接受</span>
+	      <span class="nx">props</span><span class="p">:[</span><span class="s1">'list-data'</span><span class="p">]</span>
+		<span class="c1">//list-data表示标签的属性时不能用驼峰</span>
+    <span class="c1">//3、在模板中用的时候再用驼峰</span>
+       <span class="o">&lt;</span><span class="nx">li</span> <span class="nx">v</span><span class="o">-</span><span class="k">for</span><span class="o">=</span><span class="s1">'(item,index) in listFata'</span><span class="o">&gt;&lt;</span><span class="sr">/li</span><span class="err">&gt;
+</span></code></pre></div></div>
+
+<p>2、子组件控制父组件通信</p>
+
+<p>3、无关系的组件通信</p>
+
+      <div class="page-footer">
+        <div class="page-share">
+          <a href="https://twitter.com/intent/tweet?text=Vue是什么？&url=http://localhost:4000/vue_realize/" title="Share on Twitter" rel="nofollow" target="_blank">Twitter</a>
+          <a href="https://plus.google.com/share?url=http://localhost:4000/vue_realize/" title="Share on Google+" rel="nofollow" target="_blank">Google+</a>
+		  <a href="http://service.weibo.com/share/share.php?appkey=/vue_realize/&url=http://localhost:4000" title="Share on Facebook" rel="nofollow" target="_blank">Weibo</a>
+        </div>
+
+        <div class="page-tag">
+          
+            <a href="/tags#JS" class="tag">&#35; JS</a>
+          
+            <a href="/tags#VUE" class="tag">&#35; VUE</a>
+          
+        </div>
+      </div>
+      <section class="comment-area">
+  <div class="comment-wrapper">
+    
+    <div id="disqus_thread" class="article-comments"></div>
+    <script>
+      (function() {
+          var d = document, s = d.createElement('script');
+          s.src = '//mr-brown.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+      })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    
+  </div>
+</section> <!-- End Comment Area -->
+
+    </div> <!-- End Wrap Content -->
+	<div>
+		
+	</div>
+  </div> <!-- End Page Content -->
+</article> <!-- End Article Page -->
+
+</div>
+
+<!-- <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script> -->
+<!-- <script src="../_layouts/customs.js"></script> -->
+
+  </div>
+  
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', '', 'auto');
+  ga('send', 'pageview');
+</script> <!-- End Analytics -->
+
+</body>
+</html>

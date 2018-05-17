@@ -524,14 +524,18 @@
 	<span class="p">}</span>
 	<span class="nx">next</span><span class="p">();</span>
 <span class="p">})</span>
+
 </code></pre></div></div>
+
 <p>记住登录状态使用swig模板实现</p>
 
-<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>{% if userInfo._id %}
-&lt;div class="rightBox" id="userInfo" &gt;&lt;/div&gt;
-{% else %}
-&lt;div class="rightBox"id="loginBox"&gt;&lt;/div&gt;
-{% endif %}
+<div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code>
+    <span class="p">{</span><span class="o">%</span> <span class="k">if</span> <span class="nx">userInfo</span><span class="p">.</span><span class="nx">_id</span> <span class="o">%</span><span class="p">}</span>
+	<span class="o">&lt;</span><span class="nx">div</span> <span class="kd">class</span><span class="o">=</span><span class="s2">"rightBox"</span> <span class="nx">id</span><span class="o">=</span><span class="s2">"userInfo"</span> <span class="o">&gt;&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>	<span class="p">{</span><span class="o">%</span> <span class="k">else</span> <span class="o">%</span><span class="p">}</span>
+	<span class="o">&lt;</span><span class="nx">div</span> <span class="kd">class</span><span class="o">=</span><span class="s2">"rightBox"</span><span class="nx">id</span><span class="o">=</span><span class="s2">"loginBox"</span><span class="o">&gt;&lt;</span><span class="sr">/div</span><span class="err">&gt;
+</span>	<span class="p">{</span><span class="o">%</span> <span class="nx">endif</span> <span class="o">%</span><span class="p">}</span>
+
 </code></pre></div></div>
 
 <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">router</span><span class="p">.</span><span class="kd">get</span><span class="p">(</span><span class="s1">'/'</span><span class="p">,</span><span class="kd">function</span><span class="p">(</span><span class="nx">req</span><span class="p">,</span><span class="nx">res</span><span class="p">,</span><span class="nx">next</span><span class="p">){</span>

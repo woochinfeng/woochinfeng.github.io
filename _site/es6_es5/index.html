@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>ES6与ES5写法的区别 - Rudder's Blog</title>
+
+  <!-- Edit site and author settings in `_config.yml` to make the social details your own -->
+
+    <meta content="Rudder's Blog" property="og:site_name">
+  
+    <meta content="ES6与ES5写法的区别" property="og:title">
+  
+  
+    <meta content="article" property="og:type">
+  
+  
+    <meta content="ES6" property="og:description">
+  
+  
+    <meta content="http://localhost:4000/es6_es5/" property="og:url">
+  
+  
+    <meta content="2018-02-02T05:00:00+08:00" property="article:published_time">
+    <meta content="http://localhost:4000/about/" property="article:author">
+  
+  
+    <meta content="http://localhost:4000/assets/img/es6.jpg" property="og:image">
+  
+  
+    
+  
+  
+    
+    <meta content="JS" property="article:tag">
+    
+    <meta content="ES6" property="article:tag">
+    
+    <meta content="ES5" property="article:tag">
+    
+  
+
+  
+    <meta name="twitter:card" content="ES6">
+  
+    <meta name="twitter:site" content="@">
+    <meta name="twitter:creator" content="@">
+  
+    <meta name="twitter:title" content="ES6与ES5写法的区别">
+  
+  
+    <meta name="twitter:url" content="http://localhost:4000/es6_es5/">
+  
+  
+    <meta name="twitter:description" content="ES6">
+  
+  
+    <meta name="twitter:image:src" content="http://localhost:4000/img/rudder-wu.png">
+  
+
+	<meta name="description" content="ES6">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta property="og:image" content="">
+	<!-- <link rel="shortcut icon" href="/assets/img/favicon/favicon.ico" type="image/x-icon"> -->
+	<link rel="shortcut icon" href="/assets/img/favicon/favicon.ico" type="image/x-icon">
+	<link rel="apple-touch-icon" href="/assets/img/favicon/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/assets/img/favicon/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="/assets/img/favicon/apple-touch-icon-114x114.png">
+	<!-- Chrome, Firefox OS and Opera -->
+	<meta name="theme-color" content="#263959">
+	<!-- Windows Phone -->
+	<meta name="msapplication-navbutton-color" content="#263959">
+	<!-- iOS Safari -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="#263959">
+	<!-- Google Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=PT+Serif:400,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="/assets/fonts/font-awesome/css/font-awesome.min.css">
+	<!-- Styles -->
+	<link rel="stylesheet" href="/assets/css/main.css">
+</head>
+
+<body>
+
+  <div class="wrapper">
+    <div class="content-box content-box-clear clearfix">
+  <article class="article-page">
+  <div class="page-content">
+	  
+	  <aside class="sidebar">
+  	  <header>
+  	    <div class="about">
+  	      <div class="cover-author-image">
+  	        <a href="/"><img src="/assets/img/rudder-wu.png" alt="Rudder"></a>
+  	      </div>
+  	      <div class="author-name">Rudder</div>
+  	      <p>临渊羡鱼，不如退而结网</p>
+  	    </div>
+  	  </header> <!-- End Header -->
+  	  <footer>
+  	    <section class="contact">
+  	      <h3 class="contact-title">Contact me</h3>
+  	      <ul>
+  	        
+  	          <li><a href="https://www.weibo.com/5544217447/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" target="_blank"><i class="fa fa-weibo" aria-hidden="true"></i></a></li>
+  	        
+  	        
+  	          <li class="github"><a href="https://github.com/worldkingwu" target="_blank"><i class="fa fa-github"></i></a></li>
+  	        
+  	        
+  	          <li class="email"><a href="mailto:worldkingwu@gmail.com"><i class="fa fa-envelope-o"></i></a></li>
+  	        
+  			
+  	          <li class="code"><a href="http://worldkingwu.com" target="_blank"><i class="fa  fa-code"></i></a></li>
+  	        
+  	      </ul>
+  	    </section> <!-- End Section Contact -->
+  	    <div class="copyright">
+  	      <p>2018 &copy; Rudder</p>
+  	    </div>
+  	  </footer> <!-- End Footer -->
+  	</aside> <!-- End Sidebar -->
+
+    
+    <!-- <div class="page-cover-image">
+      <img class="page-image" src=/assets/img/es6.jpg alt="ES6与ES5写法的区别">
+    </div>  -->
+	<!-- End Page Cover Image -->
+    
+    <div class="wrap-content">
+      <header class="header-page">
+        <h1 class="page-title">ES6与ES5写法的区别</h1>
+        <div class="page-date"><span>2018, Feb 02&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
+      </header>
+      <ul>
+  <li>引入模块</li>
+</ul>
+
+<p>在ES5里，使用CommonJS标准 引入React包 时，基本通过require</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>//ES5
+var React = require("react-native");
+//引用不同的React Native组件
+var {
+    Image,
+    Text,
+    PropTypes
+} = React;
+</code></pre></div></div>
+
+<p>在ES6里，import写法更为标准和清晰</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>//ES6
+import React, {
+    Image,
+    Text,
+    PropTypes
+} from 'react-native';
+</code></pre></div></div>
+<p>在React Native里，import直到0.12以上的版本 才能正常运作</p>
+
+<ul>
+  <li>导出单个类</li>
+</ul>
+
+<p>ES5:<code class="highlighter-rouge">module.exports</code>,</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>module.exports = MyComponent;
+</code></pre></div></div>
+<p>ES6:<code class="highlighter-rouge">export default</code></p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>export default class MyComponent extends React.Component{
+    ...
+}
+</code></pre></div></div>
+
+<ul>
+  <li>定义组件
+ES5: <code class="highlighter-rouge">React.createClass</code>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>//ES5
+var Photo = React.createClass({
+  render: function() {
+      return (
+          &lt;Image source={this.props.source} /&gt;
+      );
+  },
+});
+</code></pre></div>    </div>
+    <p>ES6:<code class="highlighter-rouge">React.Component</code></p>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>//ES6
+class Photo extends React.Component {
+  render() {
+      return (
+          &lt;Image source={this.props.source} /&gt;
+      );
+  }
+}
+</code></pre></div>    </div>
+  </li>
+  <li>给组件定义方法</li>
+</ul>
+
+<h5 id="不再用-funname-function">不再用 <code class="highlighter-rouge">funName: function(){}</code></h5>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>//ES5
+var Photo = React.createClass({
+    componentWillMount: function(){
+
+    },
+    render: function() {
+        return (
+            &lt;Image source={this.props.source} /&gt;
+        );
+    },
+});
+</code></pre></div></div>
+<h5 id="直接用-funname">直接用 <code class="highlighter-rouge">funName(){}</code></h5>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>//ES6
+class Photo extends React.Component {
+    componentWillMount() {
+
+    }
+    render() {
+        return (
+            &lt;Image source={this.props.source} /&gt;
+        );
+    }
+}
+</code></pre></div></div>
+<p>方法末尾不能有逗号</p>
+
+<ul>
+  <li>定义组件的属性类型和默认属性</li>
+</ul>
+
+<p>在 ES5 里，属性类型和默认属性分别通过<code class="highlighter-rouge">propTypes</code>成员和<code class="highlighter-rouge">getDefaultProps</code>方法来实现</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>//ES5
+var Video = React.createClass({
+    getDefaultProps: function() {
+        return {
+            autoPlay: false,
+            maxLoops: 10,
+        };
+    },
+    propTypes: {
+        autoPlay: React.PropTypes.bool.isRequired,
+        maxLoops: React.PropTypes.number.isRequired,
+        posterFrameSrc: React.PropTypes.string.isRequired,
+        videoSrc: React.PropTypes.string.isRequired,
+    },
+    render: function() {
+        return (
+            &lt;View /&gt;
+        );
+    },
+});
+</code></pre></div></div>
+
+<p>在 ES6 里，可以统一使用 <code class="highlighter-rouge">static</code> 成员来实现</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>//ES6
+class Video extends React.Component {
+    static defaultProps = {
+        autoPlay: false,
+        maxLoops: 10,
+    };  // 注意这里有分号
+    static propTypes = {
+        autoPlay: React.PropTypes.bool.isRequired,
+        maxLoops: React.PropTypes.number.isRequired,
+        posterFrameSrc: React.PropTypes.string.isRequired,
+        videoSrc: React.PropTypes.string.isRequired,
+    };  // 注意这里有分号
+    render() {
+        return (
+            &lt;View /&gt;
+        );
+    } // 注意这里既没有分号也没有逗号
+}
+</code></pre></div></div>
+
+<ul>
+  <li>初始化状态(state)</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>//ES5
+var Video = React.createClass({
+    getInitialState: function() {
+        return {
+            loopsRemaining: this.props.maxLoops,
+        };
+    },
+})
+</code></pre></div></div>
+<p>ES6下，有两种写法，我们更推荐后一种写法 在构造函数中初始化（这样你还可以根据需要做一些计算）这样也会更容易理解，代码如下：</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>//ES6写法1
+class Video extends React.Component {
+    state = {
+        loopsRemaining: this.props.maxLoops,
+    }
+}
+
+//ES6写法2（推荐这种写法）
+class Video extends React.Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            loopsRemaining: this.props.maxLoops,
+        };
+    }
+}
+</code></pre></div></div>
+
+<ul>
+  <li>回调</li>
+</ul>
+
+<p>在ES5下，<code class="highlighter-rouge">React.createClass</code>会把所有的方法都bind一遍，这样可以提交到任意的地方作为回调函数，而this不会变化。但官方现在逐步认为这反而是不标准、不易理解的</p>
+
+<p>在ES6下，你需要通过bind来绑定this引用，或者使用箭头函数（它会绑定当前scope的this引用）来调用</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>//ES6
+class PostInfo extends React.Component {
+    handleOptionsButtonClick(e){
+        this.setState({showOptionsModal: true});
+    }
+    render(){
+        return (
+            &lt;TouchableHighlight
+                onPress={this.handleOptionsButtonClick.bind(this)}
+                onPress={e=&gt;this.handleOptionsButtonClick(e)}
+                &gt;
+                &lt;Text&gt;{this.props.label}&lt;/Text&gt;
+            &lt;/TouchableHighlight&gt;
+        )
+    },
+}
+</code></pre></div></div>
+<ul>
+  <li>箭头函数
+箭头函数实际上是在这里定义了一个临时的函数，箭头函数的箭头=&gt;之前是一个空括号、单个的参数名、或用括号括起的多个参数名，而箭头之后可以是一个表达式（作为函数的返回值），或者是用花括号括起的函数体（需要自行通过return来返回值，否则返回的是undefined）</li>
+</ul>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// 箭头函数的例子
+()=&gt;1
+v=&gt;v+1
+(a,b)=&gt;a+b
+()=&gt;{
+    alert("foo");
+}
+e=&gt;{
+    if (e == 0){
+        return 0;
+    }
+    return 1000/e;
+}
+</code></pre></div></div>
+<p>需要注意的是，不论是bind还是箭头函数，每次被执行都返回的是一个新的函数引用，因此如果你还需要函数的引用去做一些别的事情（譬如卸载监听器），那么你必须自己保存这个引用</p>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// 错误的做法
+class PauseMenu extends React.Component{
+    componentWillMount(){
+        AppStateIOS.addEventListener('change', this.onAppPaused.bind(this));
+    }
+    componentDidUnmount(){
+        AppStateIOS.removeEventListener('change', this.onAppPaused.bind(this));
+    }
+    onAppPaused(event){
+    }
+}
+
+// 正确的做法！
+class PauseMenu extends React.Component{
+    constructor(props){
+        super(props);
+        this._onAppPaused = this.onAppPaused.bind(this);
+    }
+    componentWillMount(){
+        AppStateIOS.addEventListener('change', this._onAppPaused);
+    }
+    componentDidUnmount(){
+        AppStateIOS.removeEventListener('change', this._onAppPaused);
+    }
+    onAppPaused(event){
+    }
+}
+</code></pre></div></div>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>// 正确的做法
+class PauseMenu extends React.Component{
+    componentWillMount(){
+        AppStateIOS.addEventListener('change', this.onAppPaused);
+    }
+    componentDidUnmount(){
+        AppStateIOS.removeEventListener('change', this.onAppPaused);
+    }
+    //把方法直接作为一个arrow function的属性来定义，初始化的时候就绑定好了this指针
+    onAppPaused = (event) =&gt; {
+    }
+}
+</code></pre></div></div>
+
+<ul>
+  <li>Mixins</li>
+</ul>
+
+<p>在ES5下，我们经常使用mixin来为我们的类添加一些新的方法，譬如 <code class="highlighter-rouge">PureRenderMixin</code>，示例如下：</p>
+
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>var PureRenderMixin = require('react-addons-pure-render-mixin');
+React.createClass({
+  mixins: [PureRenderMixin],
+
+  render: function() {
+    return &lt;div className={this.props.className}&gt;foo&lt;/div&gt;;
+  }
+});
+</code></pre></div></div>
+
+      <div class="page-footer">
+        <div class="page-share">
+          <a href="https://twitter.com/intent/tweet?text=ES6与ES5写法的区别&url=http://localhost:4000/es6_es5/" title="Share on Twitter" rel="nofollow" target="_blank">Twitter</a>
+          <a href="https://plus.google.com/share?url=http://localhost:4000/es6_es5/" title="Share on Google+" rel="nofollow" target="_blank">Google+</a>
+		  <a href="http://service.weibo.com/share/share.php?appkey=/es6_es5/&url=http://localhost:4000" title="Share on Facebook" rel="nofollow" target="_blank">Weibo</a>
+        </div>
+
+        <div class="page-tag">
+          
+            <a href="/tags#JS" class="tag">&#35; JS</a>
+          
+            <a href="/tags#ES6" class="tag">&#35; ES6</a>
+          
+            <a href="/tags#ES5" class="tag">&#35; ES5</a>
+          
+        </div>
+      </div>
+      <section class="comment-area">
+  <div class="comment-wrapper">
+    
+    <div id="disqus_thread" class="article-comments"></div>
+    <script>
+      (function() {
+          var d = document, s = d.createElement('script');
+          s.src = '//mr-brown.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+      })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    
+  </div>
+</section> <!-- End Comment Area -->
+
+    </div> <!-- End Wrap Content -->
+	<div>
+		
+	</div>
+  </div> <!-- End Page Content -->
+</article> <!-- End Article Page -->
+
+</div>
+
+<!-- <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script> -->
+<!-- <script src="../_layouts/customs.js"></script> -->
+
+  </div>
+  
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', '', 'auto');
+  ga('send', 'pageview');
+</script> <!-- End Analytics -->
+
+</body>
+</html>

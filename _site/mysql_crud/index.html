@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>MySQL增删改查 - Rudder's Blog</title>
+
+  <!-- Edit site and author settings in `_config.yml` to make the social details your own -->
+
+    <meta content="Rudder's Blog" property="og:site_name">
+  
+    <meta content="MySQL增删改查" property="og:title">
+  
+  
+    <meta content="article" property="og:type">
+  
+  
+    <meta content="MySQL" property="og:description">
+  
+  
+    <meta content="http://localhost:4000/mysql_crud/" property="og:url">
+  
+  
+    <meta content="2018-01-24T05:00:00+08:00" property="article:published_time">
+    <meta content="http://localhost:4000/about/" property="article:author">
+  
+  
+    <meta content="/img/rudder-wu.png" property="og:image">
+  
+  
+    
+  
+  
+    
+    <meta content="MySQL" property="article:tag">
+    
+    <meta content="DATA" property="article:tag">
+    
+    <meta content="PHP" property="article:tag">
+    
+  
+
+  
+    <meta name="twitter:card" content="MySQL">
+  
+    <meta name="twitter:site" content="@">
+    <meta name="twitter:creator" content="@">
+  
+    <meta name="twitter:title" content="MySQL增删改查">
+  
+  
+    <meta name="twitter:url" content="http://localhost:4000/mysql_crud/">
+  
+  
+    <meta name="twitter:description" content="MySQL">
+  
+  
+    <meta name="twitter:image:src" content="http://localhost:4000/img/rudder-wu.png">
+  
+
+	<meta name="description" content="MySQL">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta property="og:image" content="">
+	<!-- <link rel="shortcut icon" href="/assets/img/favicon/favicon.ico" type="image/x-icon"> -->
+	<link rel="shortcut icon" href="/assets/img/favicon/favicon.ico" type="image/x-icon">
+	<link rel="apple-touch-icon" href="/assets/img/favicon/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/assets/img/favicon/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="/assets/img/favicon/apple-touch-icon-114x114.png">
+	<!-- Chrome, Firefox OS and Opera -->
+	<meta name="theme-color" content="#263959">
+	<!-- Windows Phone -->
+	<meta name="msapplication-navbutton-color" content="#263959">
+	<!-- iOS Safari -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="#263959">
+	<!-- Google Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=PT+Serif:400,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="/assets/fonts/font-awesome/css/font-awesome.min.css">
+	<!-- Styles -->
+	<link rel="stylesheet" href="/assets/css/main.css">
+</head>
+
+<body>
+
+  <div class="wrapper">
+    <div class="content-box content-box-clear clearfix">
+  <article class="article-page">
+  <div class="page-content">
+	  
+	  <aside class="sidebar">
+  	  <header>
+  	    <div class="about">
+  	      <div class="cover-author-image">
+  	        <a href="/"><img src="/assets/img/rudder-wu.png" alt="Rudder"></a>
+  	      </div>
+  	      <div class="author-name">Rudder</div>
+  	      <p>临渊羡鱼，不如退而结网</p>
+  	    </div>
+  	  </header> <!-- End Header -->
+  	  <footer>
+  	    <section class="contact">
+  	      <h3 class="contact-title">Contact me</h3>
+  	      <ul>
+  	        
+  	          <li><a href="https://www.weibo.com/5544217447/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1" target="_blank"><i class="fa fa-weibo" aria-hidden="true"></i></a></li>
+  	        
+  	        
+  	          <li class="github"><a href="https://github.com/worldkingwu" target="_blank"><i class="fa fa-github"></i></a></li>
+  	        
+  	        
+  	          <li class="email"><a href="mailto:worldkingwu@gmail.com"><i class="fa fa-envelope-o"></i></a></li>
+  	        
+  			
+  	          <li class="code"><a href="http://worldkingwu.com" target="_blank"><i class="fa  fa-code"></i></a></li>
+  	        
+  	      </ul>
+  	    </section> <!-- End Section Contact -->
+  	    <div class="copyright">
+  	      <p>2018 &copy; Rudder</p>
+  	    </div>
+  	  </footer> <!-- End Footer -->
+  	</aside> <!-- End Sidebar -->
+
+    
+    
+    <div class="wrap-content">
+      <header class="header-page">
+        <h1 class="page-title">MySQL增删改查</h1>
+        <div class="page-date"><span>2018, Jan 24&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
+      </header>
+      <h3 id="mysql操作命令大写">MySQL操作命令大写</h3>
+<blockquote>
+  <p>区分变量和数据库语句,代码可读性</p>
+</blockquote>
+
+<h3 id="insert增">INSERT（增）</h3>
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$sql</span> <span class="o">=</span> <span class="s2">"INSERT INTO students (Name,Sex,Age) VALUES(?,?,?)"</span><span class="p">;</span>
+</code></pre></div></div>
+<h3 id="delete删">DELETE（删）</h3>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$sql = "DELETE FROM students WHERE Name='" + name + "'";
+</code></pre></div></div>
+
+<h3 id="update改">UPDATE（改）</h3>
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$sql</span> <span class="o">=</span> <span class="s2">"UPDATE students SET Age='"</span> <span class="o">+</span> <span class="nx">student</span><span class="o">.</span><span class="nx">getAge</span><span class="p">()</span> <span class="o">+</span> <span class="s2">"' WHERE Name='"</span> <span class="o">+</span> <span class="nx">student</span><span class="o">.</span><span class="nx">getName</span><span class="p">()</span> <span class="o">+</span> <span class="s2">"'"</span><span class="p">;</span>
+</code></pre></div></div>
+
+<h3 id="select查">SELECT（查）</h3>
+<div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>$sql = "SELECT * FROM students";
+</code></pre></div></div>
+
+<h3 id="连接mysql">连接mysql</h3>
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$host</span> <span class="o">=</span> <span class="s1">'127.0.0.1'</span><span class="p">;</span>
+<span class="nv">$user</span> <span class="o">=</span> <span class="s1">'root'</span><span class="p">;</span>
+<span class="nv">$password</span> <span class="o">=</span> <span class="s1">''</span><span class="p">;</span>
+<span class="nv">$database</span> <span class="o">=</span> <span class="s1">'user'</span><span class="p">;</span><span class="c1">//连接的库
+</span>
+<span class="nv">$link</span> <span class="o">=</span> <span class="nb">mysqli_connect</span><span class="p">(</span><span class="nv">$host</span><span class="p">,</span><span class="nv">$user</span><span class="p">,</span><span class="nv">$password</span><span class="p">,</span><span class="nv">$database</span><span class="p">);</span><span class="c1">//连接mysql数据库
+</span></code></pre></div></div>
+
+<h3 id="sql查询命令">SQL查询命令</h3>
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nx">mysqli_connect_errno</span><span class="p">(</span><span class="nv">$link</span><span class="p">))</span> <span class="p">{</span>
+    <span class="k">echo</span> <span class="s1">'successful!'</span><span class="p">;</span>
+    <span class="c1">//SQL查询命令
+</span>    <span class="nv">$err</span> <span class="o">=</span> <span class="nx">mysqli_query</span><span class="p">(</span><span class="nv">$link</span><span class="p">,</span><span class="nv">$sql2</span><span class="p">);</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nv">$err</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">echo</span> <span class="s2">"插入数据成功"</span><span class="p">;</span>
+    <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+        <span class="k">echo</span> <span class="s2">"插入数据失败"</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+    <span class="k">echo</span> <span class="s1">'fail!'</span> <span class="o">.</span> <span class="nx">mysqli_connect_error</span><span class="p">();</span>
+<span class="p">}</span>
+</code></pre></div></div>
+
+<h3 id="关闭数据库">关闭数据库</h3>
+<div class="language-php highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nx">mysqli_close</span><span class="p">(</span><span class="nv">$link</span><span class="p">);</span>
+</code></pre></div></div>
+
+      <div class="page-footer">
+        <div class="page-share">
+          <a href="https://twitter.com/intent/tweet?text=MySQL增删改查&url=http://localhost:4000/mysql_crud/" title="Share on Twitter" rel="nofollow" target="_blank">Twitter</a>
+          <a href="https://plus.google.com/share?url=http://localhost:4000/mysql_crud/" title="Share on Google+" rel="nofollow" target="_blank">Google+</a>
+		  <a href="http://service.weibo.com/share/share.php?appkey=/mysql_crud/&url=http://localhost:4000" title="Share on Facebook" rel="nofollow" target="_blank">Weibo</a>
+        </div>
+
+        <div class="page-tag">
+          
+            <a href="/tags#MySQL" class="tag">&#35; MySQL</a>
+          
+            <a href="/tags#DATA" class="tag">&#35; DATA</a>
+          
+            <a href="/tags#PHP" class="tag">&#35; PHP</a>
+          
+        </div>
+      </div>
+      <section class="comment-area">
+  <div class="comment-wrapper">
+    
+    <div id="disqus_thread" class="article-comments"></div>
+    <script>
+      (function() {
+          var d = document, s = d.createElement('script');
+          s.src = '//mr-brown.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+      })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    
+  </div>
+</section> <!-- End Comment Area -->
+
+    </div> <!-- End Wrap Content -->
+	<div>
+		
+	</div>
+  </div> <!-- End Page Content -->
+</article> <!-- End Article Page -->
+
+</div>
+
+<!-- <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script> -->
+<!-- <script src="../_layouts/customs.js"></script> -->
+
+  </div>
+  
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', '', 'auto');
+  ga('send', 'pageview');
+</script> <!-- End Analytics -->
+
+</body>
+</html>
