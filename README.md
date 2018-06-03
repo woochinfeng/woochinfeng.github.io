@@ -1,3 +1,3 @@
 ### 吴金峰的个人博客
 
-你说少年明媚如昨，怎知年少时光如梦
+Nothing seek, nothing find.
