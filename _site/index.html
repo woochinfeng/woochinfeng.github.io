@@ -112,6 +112,17 @@
   
   
   <div class="post-content">
+    <h2 class="post-title"><a href="/fefront-end-errors/">前端的错误监控</a></h2>
+    <p>前端的错误监控 前端错误的分类 即时运行错误：代码错误 1）try..catch 2）window.onerror（不能捕获资源加载错误） 资源加载错误（不会冒泡） 1）object.onerror 2）performance.getEntries() 返回的是一个数组，可以用performance.getEntries().forEache(item=&gt;{console.log(item.name)})遍历出资源都是成功加载的 ，对比其它的资 源集合，减去遍历出的资源剩下的就是没加载成功的资源 3）Error事件捕获 window.addEventListener('error',function(e) { console.log('捕获'...</p>
+    <span class="post-date">2018, May 01&nbsp;&nbsp;&nbsp;—&nbsp;</span>
+    <span class="post-words">1 minute read</span>
+  </div>
+</article>
+
+<article class="post">
+  
+  
+  <div class="post-content">
     <h2 class="post-title"><a href="/http-protocol/">HTTP协议</a></h2>
     <p>HTTP协议特点 简单快速（统一资源符url） 灵活（通过改变头部数据类型可以传输不同数据类型） 无连接（连接一次就会断开） 无状态（任务完成后断开，服务端无法记住上一次连接的状态（身份）） HTTP报文组成部分 请求报文 请求行（http方法，页面地址，http协议，版本） 请求头（key，value，告诉服务端用哪些内容，类型） 空行（下一个不再是请求头，接下来解析请求体） 请求体 响应报文 状态行（协议，版本，状态码） 响应头 空行...</p>
     <span class="post-date">2018, Apr 12&nbsp;&nbsp;&nbsp;—&nbsp;</span>
@@ -182,18 +193,6 @@
     <h2 class="post-title"><a href="/php_configuration/">MAC PHP环境配置（Nginx MySQL PHP）</a></h2>
     <p>1. 安装brew $ /usr/bin/ruby -e “$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)” 2.安装MySQL $ brew install mysql 启动MySQL $...</p>
     <span class="post-date">2017, Nov 22&nbsp;&nbsp;&nbsp;—&nbsp;</span>
-    <span class="post-words">1 minute read</span>
-  </div>
-</article>
-
-<article class="post">
-  
-    <a class="post-thumbnail" style="background-image: url(/assets/img/jtalk-banner.png)" href="/jtalk-work/"></a>
-  
-  <div class="post-content">
-    <h2 class="post-title"><a href="/jtalk-work/">看够了，来聊聊JTalk面基!</a></h2>
-    <p>行程 时间：2017.11.04 地点：北京市海淀区中关村微软大厦 JTalk 主打小型的线下沙龙，主要是分享开发者如何运营自己，也是掘金的一次线下尝试。 说到路程，因为坐的是加长的大Limo赴会，有点意料之中的赌在了路上，以至于后来miss了龙大的分享（OS：谁给的勇气坐公交！） 充满歉意的来到现场，所幸魔魔给留了后门，以及伙伴们的包容，顺利的进入了会场，这里表示衷心的感谢！ 关于Github的一些微小经验 Github 是什么？ 没错，Github 是开发者学习、合作、社交的平台。 遗憾的miss了龙大的分享，只踩着了尾巴。 enjoy coding,...</p>
-    <span class="post-date">2017, Nov 04&nbsp;&nbsp;&nbsp;—&nbsp;</span>
     <span class="post-words">1 minute read</span>
   </div>
 </article>

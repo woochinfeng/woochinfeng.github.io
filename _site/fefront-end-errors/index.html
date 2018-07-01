@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>前端的错误监控 - Rudder's Blog</title>
+
+  <!-- Edit site and author settings in `_config.yml` to make the social details your own -->
+
+    <meta content="Rudder's Blog" property="og:site_name">
+  
+    <meta content="前端的错误监控" property="og:title">
+  
+  
+    <meta content="article" property="og:type">
+  
+  
+    <meta content="HTTP" property="og:description">
+  
+  
+    <meta content="http://localhost:4000/fefront-end-errors/" property="og:url">
+  
+  
+    <meta content="2018-05-01T05:00:00+08:00" property="article:published_time">
+    <meta content="http://localhost:4000/about/" property="article:author">
+  
+  
+    <meta content="/img/rudder-wu.png" property="og:image">
+  
+  
+    
+  
+  
+    
+    <meta content="JS" property="article:tag">
+    
+    <meta content="HTTP" property="article:tag">
+    
+  
+
+  
+    <meta name="twitter:card" content="HTTP">
+  
+    <meta name="twitter:site" content="@">
+    <meta name="twitter:creator" content="@">
+  
+    <meta name="twitter:title" content="前端的错误监控">
+  
+  
+    <meta name="twitter:url" content="http://localhost:4000/fefront-end-errors/">
+  
+  
+    <meta name="twitter:description" content="HTTP">
+  
+  
+    <meta name="twitter:image:src" content="http://localhost:4000/img/rudder-wu.png">
+  
+
+	<meta name="description" content="HTTP">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+	<meta property="og:image" content="">
+	<!-- <link rel="shortcut icon" href="/assets/img/favicon/favicon.ico" type="image/x-icon"> -->
+	<link rel="shortcut icon" href="/assets/img/favicon/favicon.ico" type="image/x-icon">
+	<link rel="apple-touch-icon" href="/assets/img/favicon/apple-touch-icon.png">
+	<link rel="apple-touch-icon" sizes="72x72" href="/assets/img/favicon/apple-touch-icon-72x72.png">
+	<link rel="apple-touch-icon" sizes="114x114" href="/assets/img/favicon/apple-touch-icon-114x114.png">
+	<!-- Chrome, Firefox OS and Opera -->
+	<meta name="theme-color" content="#263959">
+	<!-- Windows Phone -->
+	<meta name="msapplication-navbutton-color" content="#263959">
+	<!-- iOS Safari -->
+	<meta name="apple-mobile-web-app-status-bar-style" content="#263959">
+	<!-- Google Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=PT+Serif:400,700" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
+	<!-- Font Awesome -->
+	<link rel="stylesheet" href="/assets/fonts/font-awesome/css/font-awesome.min.css">
+	<!-- Styles -->
+	<link rel="stylesheet" href="/assets/css/main.css">
+</head>
+
+<body>
+
+  <div class="wrapper">
+    <div class="content-box content-box-clear clearfix">
+  <article class="article-page">
+  <div class="page-content">
+	  
+	  <aside class="sidebar">
+  	  <header>
+  	    <div class="about">
+  	      <div class="cover-author-image">
+  	        <a href="/"><img src="/assets/img/rudder-wu.png" alt="Rudder"></a>
+  	      </div>
+  	      <div class="author-name">Rudder</div>
+  	      <p>无所求则无所获。</p>
+  	    </div>
+  	  </header> <!-- End Header -->
+  	  <footer>
+  	    <section class="contact">
+  	      <h3 class="contact-title">Contact me</h3>
+  	      <ul>
+  	        
+  	          <li><a href="https://www.weibo.com/rudderwu" target="_blank"><i class="fa fa-weibo" aria-hidden="true"></i></a></li>
+  	        
+  	        
+  	          <li class="github"><a href="https://github.com/worldkingwu" target="_blank"><i class="fa fa-github"></i></a></li>
+  	        
+  	        
+  	          <li class="email"><a href="mailto:worldkingwu@gmail.com"><i class="fa fa-envelope-o"></i></a></li>
+  	        
+  			
+  	          <li class="code"><a href="http://worldkingwu.com" target="_blank"><i class="fa  fa-code"></i></a></li>
+  	        
+  	      </ul>
+  	    </section> <!-- End Section Contact -->
+  	    <div class="copyright">
+  	      <p>2018 &copy; Rudder</p>
+  	    </div>
+  	  </footer> <!-- End Footer -->
+  	</aside> <!-- End Sidebar -->
+
+    
+    
+    <div class="wrap-content">
+      <header class="header-page">
+        <h1 class="page-title">前端的错误监控</h1>
+        <div class="page-date"><span>2018, May 01&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
+      </header>
+      <h3 id="前端的错误监控">前端的错误监控</h3>
+
+<h4 id="前端错误的分类">前端错误的分类</h4>
+
+<ul>
+  <li>
+    <p>即时运行错误：代码错误</p>
+
+    <ul>
+      <li>
+        <p>1）try..catch</p>
+      </li>
+      <li>
+        <p>2）window.onerror（不能捕获资源加载错误）</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>资源加载错误（不会冒泡）</p>
+
+    <ul>
+      <li>
+        <p>1）object.onerror</p>
+      </li>
+      <li>2）performance.getEntries()
+        <ul>
+          <li>返回的是一个数组，可以用<code class="highlighter-rouge">performance.getEntries().forEache(item=&gt;{console.log(item.name)})</code>遍历出资源都是成功加载的 ，对比其它的资 源集合，减去遍历出的资源剩下的就是没加载成功的资源</li>
+        </ul>
+      </li>
+      <li>3）Error事件捕获
+        <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  window.addEventListener('error',function(e) {
+      console.log('捕获' + e)
+  },true)
+  //必须是true捕获，false是冒泡无法获得error
+</code></pre></div>        </div>
+      </li>
+    </ul>
+  </li>
+</ul>
+
+<p><strong>延伸：跨域的js运行错误跨域捕获吗，错误提示什么，应该怎么处理？</strong>
+跨域的js错误信息返回为<code class="highlighter-rouge">Script error</code>,但是却不能显示出错文件和出错行号或出错详情等，需要做处理</p>
+
+<ul>
+  <li>
+    <p>1.在script标签增加<code class="highlighter-rouge">crossorigin</code>属性（客户端）</p>
+  </li>
+  <li>
+    <p>2.设置js资源响应<code class="highlighter-rouge">Access-Control-Allow-Origin:*</code>（服务端）</p>
+  </li>
+</ul>
+
+<h4 id="错误的捕获方式">错误的捕获方式</h4>
+
+<h4 id="上报错误的基本原理">上报错误的基本原理</h4>
+
+<ul>
+  <li>
+    <p>1.采用Ajax通信的方式上报</p>
+  </li>
+  <li>
+    <p>2.利用Image对象上报</p>
+    <div class="highlighter-rouge"><div class="highlight"><pre class="highlight"><code>  (new Image().src = 'http://www.xxx.com/test?=test')
+</code></pre></div>    </div>
+  </li>
+</ul>
+
+
+      <div class="page-footer">
+        <div class="page-share">
+          <a href="https://twitter.com/intent/tweet?text=前端的错误监控&url=http://localhost:4000/fefront-end-errors/" title="Share on Twitter" rel="nofollow" target="_blank">Twitter</a>
+          <a href="https://plus.google.com/share?url=http://localhost:4000/fefront-end-errors/" title="Share on Google+" rel="nofollow" target="_blank">Google+</a>
+		  <a href="http://service.weibo.com/share/share.php?appkey=/fefront-end-errors/&url=http://localhost:4000" title="Share on Facebook" rel="nofollow" target="_blank">Weibo</a>
+        </div>
+
+        <div class="page-tag">
+          
+            <a href="/tags#JS" class="tag">&#35; JS</a>
+          
+            <a href="/tags#HTTP" class="tag">&#35; HTTP</a>
+          
+        </div>
+      </div>
+      <section class="comment-area">
+  <div class="comment-wrapper">
+    
+    <div id="disqus_thread" class="article-comments"></div>
+    <script>
+      (function() {
+          var d = document, s = d.createElement('script');
+          s.src = '//mr-brown.disqus.com/embed.js';
+          s.setAttribute('data-timestamp', +new Date());
+          (d.head || d.body).appendChild(s);
+      })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    
+  </div>
+</section> <!-- End Comment Area -->
+
+    </div> <!-- End Wrap Content -->
+	<div>
+		
+	</div>
+  </div> <!-- End Page Content -->
+</article> <!-- End Article Page -->
+
+</div>
+
+<!-- <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script> -->
+<!-- <script src="../_layouts/customs.js"></script> -->
+
+  </div>
+  
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', '', 'auto');
+  ga('send', 'pageview');
+</script> <!-- End Analytics -->
+
+</body>
+</html>
