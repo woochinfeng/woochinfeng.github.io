@@ -112,6 +112,17 @@
   
   
   <div class="post-content">
+    <h2 class="post-title"><a href="/fe-performance/">前端页面性能类</a></h2>
+    <p>前端页面性能类 提升页面性能的方法 1.资源压缩合并，减少HTTP请求 2.非核心代码异步加载 异步加载的方式 1）动态脚本加载（document.createElement） 2）defer 3）async 异步加载的区别 1）defer是在HTML解析完成之后才会执行，如果是多个，按照加载的顺序依次执行 2）async是在加载完成之后立即执行，如果是多个，执行顺序和加载顺序无关 3.利用浏览器缓存 缓存的分类 缓存的原理 4.使用CDN（网络优化）...</p>
+    <span class="post-date">2018, May 01&nbsp;&nbsp;&nbsp;—&nbsp;</span>
+    <span class="post-words">1 minute read</span>
+  </div>
+</article>
+
+<article class="post">
+  
+  
+  <div class="post-content">
     <h2 class="post-title"><a href="/fefront-end-errors/">前端的错误监控</a></h2>
     <p>前端的错误监控 前端错误的分类 即时运行错误：代码错误 1）try..catch 2）window.onerror（不能捕获资源加载错误） 资源加载错误（不会冒泡） 1）object.onerror 2）performance.getEntries() 返回的是一个数组，可以用performance.getEntries().forEache(item=&gt;{console.log(item.name)})遍历出资源都是成功加载的 ，对比其它的资 源集合，减去遍历出的资源剩下的就是没加载成功的资源 3）Error事件捕获 window.addEventListener('error',function(e) { console.log('捕获'...</p>
     <span class="post-date">2018, May 01&nbsp;&nbsp;&nbsp;—&nbsp;</span>
@@ -183,17 +194,6 @@
     <p>exit() 输出一条消息，并退出当前脚本（终止程序继续向下执行）； $_GET   $_POST 用来接收数据；它们都是一个数组 $_GET['key'] 在前端发送FORM表单数据时，一定要设置input的name属性,后端才可以正常接收 PHP echo 和 print() 、 print_r() 、...</p>
     <span class="post-date">2018, Jan 12&nbsp;&nbsp;&nbsp;—&nbsp;</span>
     <span class="post-words">4 minute read</span>
-  </div>
-</article>
-
-<article class="post">
-  
-  
-  <div class="post-content">
-    <h2 class="post-title"><a href="/php_configuration/">MAC PHP环境配置（Nginx MySQL PHP）</a></h2>
-    <p>1. 安装brew $ /usr/bin/ruby -e “$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)” 2.安装MySQL $ brew install mysql 启动MySQL $...</p>
-    <span class="post-date">2017, Nov 22&nbsp;&nbsp;&nbsp;—&nbsp;</span>
-    <span class="post-words">1 minute read</span>
   </div>
 </article>
 
